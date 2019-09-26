@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    defaultConfig {
+        applicationId "com.android.wanandroid"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation deps.support.design
+
+    implementation deps.androidX.appcompat
+    implementation deps.androidX.constraintlayout
+    implementation deps.androidX.recyclerview
+
+    implementation deps.function.eventbus
+    implementation deps.function.banner
+    implementation deps.function.FlycoTabLayoutLib
+
+    implementation deps.rxJava.rxJava_rxlifecycle_components
+
+    implementation deps.netWork.retrofit2_gson
+
+
+
+    implementation deps.bitmap.glide
+    annotationProcessor deps.bitmap.glide_compiler
+
+    implementation deps.other.smartRefreshLayout
+    implementation deps.other.smartRefreshHeader
+    implementation deps.other.tagFlowLayout
+
+    implementation 'com.github.YanJkCode:myeazymvp:1.2'
+
+    implementation project(path: ':utils')
+}
