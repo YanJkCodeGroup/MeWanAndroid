@@ -1,10 +1,13 @@
 package com.android.wanandroid.module.home;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.android.mymvp.base.BaseActivity;
+import com.android.utils.system.ImmersionModeUtil;
 import com.android.wanandroid.R;
 import com.android.wanandroid.module.adapter.HomeViewPagerAdapter;
 import com.android.wanandroid.module.book.BookFragment;
@@ -30,13 +33,8 @@ public class HomeActivity extends BaseActivity {
    @BindView(R.id.home_drawer)
    DrawerLayout homeDrawer;
    private ArrayList<Fragment> fragments;
-   private int[] homeIcon = {
-           R.drawable.tab_home_selector,
-           R.drawable.tab_book_selector,
-           R.drawable.tab_wechat_selector,
-           R.drawable.tab_project_selector,
-           R.drawable.tab_mine_selector};
-   private String[] homeTitle = {"首页", "体系", "公众号", "项目", "我的"};
+   private int[] homeIcon;
+   private String[] homeTitle;
 
    @Override
    public int initLayout() {
@@ -45,6 +43,8 @@ public class HomeActivity extends BaseActivity {
 
    @Override
    protected void initView() {
+      //进入沉浸模式,不设置底部导航透明
+      ImmersionModeUtil.setStatusBar(this, false);
       initTab();
    }
 
@@ -56,6 +56,15 @@ public class HomeActivity extends BaseActivity {
       fragments.add(new WechatFragment());
       fragments.add(new ProjectFragment());
       fragments.add(new MineFragment());
+
+      homeIcon = new int[]{
+              R.drawable.tab_home_selector,
+              R.drawable.tab_book_selector,
+              R.drawable.tab_wechat_selector,
+              R.drawable.tab_project_selector,
+              R.drawable.tab_mine_selector};
+
+      homeTitle = new String[]{"首页", "体系", "公众号", "项目", "我的"};
    }
 
    private void initTab() {
@@ -71,4 +80,11 @@ public class HomeActivity extends BaseActivity {
    }
 
 
+   public void setNavigation(Toolbar homeToolbar) {
+      ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, homeDrawer,
+              homeToolbar, R.string.navi_open, R.string.navi_close);
+      homeDrawer.addDrawerListener(toggle);
+      toggle.syncState();
+
+   }
 }
