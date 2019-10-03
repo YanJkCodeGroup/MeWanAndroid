@@ -23,7 +23,7 @@ public class Density {
    private static float xDpi = 480;
    private static float yDpi = 480;
    private static Application sApplication = getApplication();
-
+   private static boolean isSetBlueprintDPI;
    public final static String WIDTH = "width";
    public final static String HEIGHT = "height";
 
@@ -69,6 +69,7 @@ public class Density {
    public static void initBlueprintDPI(int blueprintDPI) {
       xDpi = blueprintDPI;
       yDpi = blueprintDPI;
+      isSetBlueprintDPI = true;
    }
 
    /**
@@ -86,9 +87,11 @@ public class Density {
       DisplayMetrics appDisplayMetrics = application.getResources().getDisplayMetrics();
       //获取状态栏高度
       int barHeight = getStateBar2(application);
-      xDpi = (float) (Math.sqrt(Math.pow(appDisplayMetrics.widthPixels, 2) + Math.pow(appDisplayMetrics.heightPixels, 2)) /
-              getPingMuSize(application));
-      yDpi = xDpi;
+      if (!isSetBlueprintDPI) {
+         xDpi = (float) (Math.sqrt(Math.pow(appDisplayMetrics.widthPixels, 2) + Math.pow(appDisplayMetrics.heightPixels, 2)) /
+                 getPingMuSize(application));
+         yDpi = xDpi;
+      }
       if (appDensity == 0) {
          //初始化的时候赋值
          appDensity = appDisplayMetrics.density;

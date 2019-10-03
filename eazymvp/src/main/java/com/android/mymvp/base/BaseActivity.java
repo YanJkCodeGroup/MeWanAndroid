@@ -36,18 +36,18 @@ public abstract class BaseActivity extends RxAppCompatActivity implements IBaseC
    @Override
    protected void onCreate(@Nullable Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      if (!isShowTitle()) {
+      if (isShowTitle()) {
          //无title
-         requestWindowFeature(Window.FEATURE_NO_TITLE);
+         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
       }
       if (isShowFullScreen()) {
          //全屏
-         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                  WindowManager.LayoutParams.FLAG_FULLSCREEN);
       }
       //使用今日头条万能适配方式 强制修改手机DPI密度
-      //使用前请在Application中调用初始化 Density.initBlueprintDPI(设计图DPI)
-      //否则默认480DPI
+      //可以在Application中调用初始化DPI Density.initBlueprintDPI(设计图DPI)
+      //否则默认自动计算DPI
       Density.setDefault(this);
       setContentView(initLayout());
 
