@@ -7,11 +7,11 @@ import io.reactivex.disposables.Disposable;
 
 public class BaseObserver<T> implements Observer<T> {
 
-   private WeakReference<BaseCallback<T>> callback;
+   private BaseCallback<T> callback;
    private Disposable mDisposable;
 
    public BaseObserver(BaseCallback<T> callback) {
-      this.callback = new WeakReference<>(callback);
+      this.callback = callback;
    }
 
    @Override
@@ -22,16 +22,14 @@ public class BaseObserver<T> implements Observer<T> {
    @Override
    public void onNext(T t) {
       if (callback != null) {
-         if (getCallback() != null) {
-            getCallback().onCallSuccessful(t);
-         }
+         callback.onCallSuccessful(t);
       }
    }
 
    @Override
    public void onError(Throwable e) {
       if (callback != null) {
-         getCallback().onCallFailed(e);
+         callback.onCallFailed(e);
       }
    }
 
@@ -42,12 +40,7 @@ public class BaseObserver<T> implements Observer<T> {
          mDisposable = null;
       }
       if (callback != null) {
-         callback.clear();
          callback = null;
       }
-   }
-
-   public final BaseCallback<T> getCallback() {
-      return callback.get();
    }
 }

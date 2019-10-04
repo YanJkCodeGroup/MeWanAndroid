@@ -57,7 +57,7 @@ public abstract class BaseModel<HttpService> {
    /**
     * @return 网络请求服务接口对象
     */
-   protected final HttpService getHttpService() {
+   protected final HttpService  getHttpService() {
       return httpService;
    }
 

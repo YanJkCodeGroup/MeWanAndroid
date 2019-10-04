@@ -51,4 +51,8 @@ dependencies {
     implementation project(path: ':utils')
     implementation project(path: ':eazymvp')
 
+
+    //粘性头布局
+    implementation 'com.github.qdxxxx:StickyHeaderDecoration:1.0.1'
+
 }
