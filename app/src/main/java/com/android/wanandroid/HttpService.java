@@ -1,6 +1,7 @@
 package com.android.wanandroid;
 
 import com.android.wanandroid.module.book.bookbeans.BookNavigationBean;
+import com.android.wanandroid.module.book.bookbeans.BookSystemBean;
 import com.android.wanandroid.test.HttpResult;
 import com.android.wanandroid.test.entity.Test;
 
@@ -17,4 +18,8 @@ public interface HttpService {
 
     @GET("https://www.wanandroid.com/navi/json")
     Observable<HttpResult<List<BookNavigationBean>>> getBookNavigationList();
+
+    @GET("https://www.wanandroid.com/tree/json")
+    Observable<HttpResult<List<BookSystemBean>>> getBookSystemList();
+
 }
