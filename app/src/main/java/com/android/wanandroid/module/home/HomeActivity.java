@@ -1,8 +1,5 @@
 package com.android.wanandroid.module.home;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -15,7 +12,6 @@ import com.android.wanandroid.module.mine.MineFragment;
 import com.android.wanandroid.module.project.ProjectFragment;
 import com.android.wanandroid.module.wechat.WechatFragment;
 import com.android.wanandroid.utils.TabLayoutUtil;
-import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -28,10 +24,6 @@ public class HomeActivity extends BaseActivity {
    ViewPager homeVp;
    @BindView(R.id.home_tab)
    TabLayout homeTab;
-   @BindView(R.id.home_navigation)
-   NavigationView homeNavigation;
-   @BindView(R.id.home_drawer)
-   DrawerLayout homeDrawer;
    private ArrayList<Fragment> fragments;
    private int[] homeIcon;
    private String[] homeTitle;
@@ -79,12 +71,4 @@ public class HomeActivity extends BaseActivity {
       }
    }
 
-
-   public void setNavigation(Toolbar homeToolbar) {
-      ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, homeDrawer,
-              homeToolbar, R.string.navi_open, R.string.navi_close);
-      homeDrawer.addDrawerListener(toggle);
-      toggle.syncState();
-
-   }
 }

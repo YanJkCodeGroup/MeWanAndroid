@@ -29,11 +29,4 @@ public class HomeFragment extends BaseFragment {
       return R.layout.fragment_home;
    }
 
-
-   @Override
-   protected void initView() {
-      if (getActivity() instanceof HomeActivity) {
-         ((HomeActivity) getActivity()).setNavigation(homeToolbar);
-      }
-   }
 }
