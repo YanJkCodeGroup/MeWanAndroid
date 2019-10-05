@@ -27,11 +27,11 @@ import butterknife.Unbinder;
 public abstract class BaseFragment extends RxFragment implements IBaseLayout, IbaseToActivity,
         IBaseFragmentDecorate {
 
-   private Unbinder unbinder;
+   protected Unbinder unbinder;
    protected Context mContext;
    protected Activity mActivity;
    private LoadingView mLoadingView;
-
+   protected View rootView;
    public BaseFragment() {
    }
 
@@ -39,9 +39,9 @@ public abstract class BaseFragment extends RxFragment implements IBaseLayout, Ib
    @Override
    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                             @Nullable Bundle savedInstanceState) {
-      View view = inflater.inflate(initLayout(), container, false);
-      unbinder = ButterKnife.bind(this, view);
-      return view;
+      rootView = inflater.inflate(initLayout(), container, false);
+      unbinder = ButterKnife.bind(this, rootView);
+      return rootView;
    }
 
    @Override

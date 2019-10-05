@@ -1,6 +1,10 @@
 package com.android.wanandroid.module.book;
 
 
+import android.os.Bundle;
+import android.view.View;
+
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
@@ -16,6 +20,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,40 +28,51 @@ import butterknife.BindView;
 public class BookFragment extends BaseFragment {
 
 
-   @BindView(R.id.fragment_book_tab)
-   TabLayout fragmentBookTab;
-   @BindView(R.id.fragment_book_vp)
-   ViewPager fragmentBookVp;
+    @BindView(R.id.fragment_book_tab)
+    TabLayout fragmentBookTab;
+    @BindView(R.id.fragment_book_vp)
+    ViewPager fragmentBookVp;
 
-   public BookFragment() {
-      // Required empty public constructor
-   }
+    public BookFragment() {
+        // Required empty public constructor
+    }
 
-   @Override
-   public int initLayout() {
-      return R.layout.fragment_book;
-   }
+    @Override
+    public int initLayout() {
+        return R.layout.fragment_book;
+    }
 
-   @Override
-   protected void initView() {
-      fragmentBookTab.setPadding(fragmentBookTab.getPaddingLeft(),
-              AppUtils.getStateBar2(getContext()),
-              fragmentBookTab.getPaddingRight(),
-              fragmentBookTab.getPaddingBottom());
-   }
+    @Override
+    protected void initView() {
+        fragmentBookTab.setPadding(fragmentBookTab.getPaddingLeft(),
+                AppUtils.getStateBar2(getContext()),
+                fragmentBookTab.getPaddingRight(),
+                fragmentBookTab.getPaddingBottom());
+    }
 
-   @Override
-   protected void initData() {
-      super.initData();
-      FragmentManager fm = getFragmentManager();
-      ArrayList<Fragment> fl = new ArrayList<>();
-      BookSystemFragment bookSystemFragment = new BookSystemFragment();
-      BookNavigationFragment bookNavigationFragment = new BookNavigationFragment();
-      fl.add(bookSystemFragment);
-      fl.add(bookNavigationFragment);
-      BookTabAndVPAdaper bookTabAndVPAdaper = new BookTabAndVPAdaper(fm, fl);
-      fragmentBookVp.setAdapter(bookTabAndVPAdaper);
-      fragmentBookTab.setupWithViewPager(fragmentBookVp);
+    @Override
+    protected void initData() {
+        FragmentManager cfm =getActivity().getSupportFragmentManager();
+        ArrayList<Fragment> fl = new ArrayList<>();
+        BookSystemFragment bookSystemFragment = new BookSystemFragment();
+        BookNavigationFragment bookNavigationFragment = new BookNavigationFragment();
+        fl.add(bookSystemFragment);
+        fl.add(bookNavigationFragment);
+        BookTabAndVPAdaper bookTabAndVPAdaper = new BookTabAndVPAdaper(cfm, fl);
+        fragmentBookVp.setAdapter(bookTabAndVPAdaper);
+        fragmentBookTab.setupWithViewPager(fragmentBookVp);
+    }
 
-   }
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (rootView == null) {
+            return;
+        }
+
+        if (isVisibleToUser) {
+            unbinder = ButterKnife.bind(this, rootView);
+            initData();
+        }
+    }
 }

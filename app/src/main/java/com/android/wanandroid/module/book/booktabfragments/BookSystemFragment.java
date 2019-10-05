@@ -2,6 +2,7 @@ package com.android.wanandroid.module.book.booktabfragments;
 
 
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -33,11 +34,11 @@ public class BookSystemFragment extends BaseMvpFragment<Contract.bookSystemPrese
         // Required empty public constructor
     }
 
-
     @Override
     public int initLayout() {
         return R.layout.fragment_book_system;
     }
+
 
     @Override
     public void succeed(List<BookSystemBean> sysList) {
@@ -49,14 +50,12 @@ public class BookSystemFragment extends BaseMvpFragment<Contract.bookSystemPrese
                 return sysList.get(i).getName();
             }
         };
-
         LinearLayoutManager lm = new LinearLayoutManager(mContext);
         fragmentBooksysRec.setLayoutManager(lm);
-        fragmentBooksysRec.addItemDecoration(normalDecoration);
         BookSystemAdaper bookSystemAdaper = new BookSystemAdaper(mContext);
         fragmentBooksysRec.setAdapter(bookSystemAdaper);
+        fragmentBooksysRec.addItemDecoration(normalDecoration);
         bookSystemAdaper.initDate(sysList);
-
     }
 
     @Override
@@ -75,4 +74,6 @@ public class BookSystemFragment extends BaseMvpFragment<Contract.bookSystemPrese
         super.initData();
         mPresenter.initSystemPresenter();
     }
+
+
 }

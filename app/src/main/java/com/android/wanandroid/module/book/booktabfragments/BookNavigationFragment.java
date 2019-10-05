@@ -25,13 +25,14 @@ import qdx.stickyheaderdecoration.NormalDecoration;
  */
 public class BookNavigationFragment extends BaseMvpFragment<Contract.bookNavigationPresenter> implements Contract.bookNavigationView {
 
+    private static final String TAG = "BookNavigationFragment";
+
     @BindView(R.id.fragment_booknav_rec)
     RecyclerView fragmentBooknavRec;
 
     public BookNavigationFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public int initLayout() {

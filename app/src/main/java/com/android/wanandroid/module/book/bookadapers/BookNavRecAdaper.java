@@ -1,6 +1,7 @@
 package com.android.wanandroid.module.book.bookadapers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.wanandroid.R;
+import com.android.wanandroid.module.book.bookactivity.BookNavigationActivity;
 import com.android.wanandroid.module.book.bookbeans.BookNavigationBean;
 import com.android.wanandroid.module.book.bookui.FlowLayout;
 
@@ -42,10 +44,14 @@ public class BookNavRecAdaper extends RecyclerView.Adapter<BookNavRecAdaper.View
             TextView view = (TextView) LayoutInflater.from(context).inflate(R.layout.item_navbook, null);
             view.setText(articles.get(j).getTitle());
             final int finalJ = j;
+            int finalJ1 = j;
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "你点击了" + articles.get(finalJ).getTitle(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, BookNavigationActivity.class);
+                    String link = articles.get(finalJ1).getLink();
+                    intent.putExtra("link", link);
+                    context.startActivity(intent);
                 }
             });
             holder.fl.addView(view);
