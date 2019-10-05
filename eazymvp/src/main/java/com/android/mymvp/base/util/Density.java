@@ -13,7 +13,6 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.lang.reflect.Field;
 import java.math.BigDecimal;
 
 public class Density {
@@ -86,7 +85,7 @@ public class Density {
       //获取application的DisplayMetrics
       DisplayMetrics appDisplayMetrics = application.getResources().getDisplayMetrics();
       //获取状态栏高度
-      int barHeight = getStateBar2(application);
+      int barHeight = AppUtils.getStateBar2(application);
       if (!isSetBlueprintDPI) {
          xDpi = (float) (Math.sqrt(Math.pow(appDisplayMetrics.widthPixels, 2) + Math.pow(appDisplayMetrics.heightPixels, 2)) /
                  getPingMuSize(application));
@@ -159,24 +158,4 @@ public class Density {
       return (float) mScreenInches;
    }
 
-   /**
-    * 获取当前手机的 状态栏高度
-    *
-    * @param context
-    * @return
-    */
-   private static int getStateBar2(Context context) {
-      Class c = null;
-      try {
-         c = Class.forName("com.android.internal.R$dimen");
-         Object obj = c.newInstance();
-         Field field = c.getField("status_bar_height");
-         int x = Integer.parseInt(field.get(obj).toString());
-         int statusBarHeight = context.getResources().getDimensionPixelSize(x);
-         return statusBarHeight;
-      } catch (Exception e) {
-         e.printStackTrace();
-      }
-      return 0;
-   }
 }

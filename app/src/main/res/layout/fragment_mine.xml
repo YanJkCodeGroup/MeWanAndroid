@@ -1,53 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".module.mine.MineFragment">
 
-    <ImageView
-        android:id="@+id/mine_top_bg"
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/mine_navigation"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:minHeight="250dp"
-        android:src="@color/colorPrimary"
+        android:layout_height="0dp"
+        app:headerLayout="@layout/navi_head_layout"
+        app:itemIconTint="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <ImageView
-        android:id="@+id/navigation_header_user_icon"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/circle_shape"
-        app:layout_constraintBottom_toBottomOf="@id/mine_top_bg"
-        app:layout_constraintEnd_toEndOf="@id/mine_top_bg"
-        app:layout_constraintStart_toStartOf="@id/mine_top_bg"
-        app:layout_constraintTop_toTopOf="@id/mine_top_bg" />
-
-    <TextView
-        android:id="@+id/navigation_header_pet_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/text_pet_name"
-        android:textColor="@android:color/white"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="@+id/navigation_header_user_icon"
-        app:layout_constraintStart_toStartOf="@+id/navigation_header_user_icon"
-        app:layout_constraintTop_toBottomOf="@+id/navigation_header_user_icon" />
-
-    <TextView
-        android:id="@+id/navigation_header_user_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="@+id/navigation_header_pet_name"
-        app:layout_constraintStart_toStartOf="@+id/navigation_header_pet_name"
-        app:layout_constraintTop_toBottomOf="@+id/navigation_header_pet_name" />
-
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/mine_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

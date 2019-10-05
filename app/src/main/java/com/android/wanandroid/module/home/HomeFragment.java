@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.mymvp.base.BaseFragment;
+import com.android.mymvp.base.util.AppUtils;
 import com.android.wanandroid.R;
 
 import butterknife.BindView;
@@ -29,4 +30,11 @@ public class HomeFragment extends BaseFragment {
       return R.layout.fragment_home;
    }
 
+   @Override
+   protected void initView() {
+      homeToolbar.setPadding(homeToolbar.getPaddingLeft(),
+              AppUtils.getStateBar2(getContext()),
+              homeToolbar.getPaddingRight(),
+              homeToolbar.getPaddingBottom());
+   }
 }
