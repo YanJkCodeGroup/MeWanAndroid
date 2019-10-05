@@ -18,7 +18,6 @@ import com.android.mymvp.R;
 import com.android.mymvp.base.Interface.IBaseFragmentDecorate;
 import com.android.mymvp.base.Interface.IBaseLayout;
 import com.android.mymvp.base.Interface.IbaseToActivity;
-import com.android.mymvp.base.util.Density;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
 import butterknife.ButterKnife;

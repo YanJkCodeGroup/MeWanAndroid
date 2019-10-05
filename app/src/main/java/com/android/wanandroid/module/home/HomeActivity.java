@@ -47,7 +47,6 @@ public class HomeActivity extends BaseActivity {
       fragments.add(new WechatFragment());
       fragments.add(new ProjectFragment());
       fragments.add(new MineFragment());
-
       homeIcon = new int[]{
               R.drawable.tab_home_selector,
               R.drawable.tab_book_selector,
