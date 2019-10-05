@@ -14,7 +14,6 @@ import com.android.wanandroid.module.book.bookadapers.BookNavRecAdaper;
 import com.android.wanandroid.module.book.bookbeans.BookNavigationBean;
 import com.android.wanandroid.module.book.bookpresenter.BookNavigationPresenter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;

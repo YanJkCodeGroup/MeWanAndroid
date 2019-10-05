@@ -48,9 +48,9 @@ dependencies {
     implementation deps.other.smartRefreshLayout
     implementation deps.other.smartRefreshHeader
     implementation deps.other.tagFlowLayout
+
     implementation project(path: ':utils')
     implementation project(path: ':eazymvp')
-
 
     //粘性头布局
     implementation 'com.github.qdxxxx:StickyHeaderDecoration:1.0.1'

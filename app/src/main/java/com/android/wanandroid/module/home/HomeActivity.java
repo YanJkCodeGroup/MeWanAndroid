@@ -40,7 +40,6 @@ public class HomeActivity extends BaseActivity {
       initTab();
    }
 
-
    private void initTabData() {
       fragments = new ArrayList<>();
       fragments.add(new HomeFragment());
