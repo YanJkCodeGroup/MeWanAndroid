@@ -2,6 +2,9 @@ package com.android.wanandroid;
 
 import com.android.wanandroid.module.book.bookbeans.BookNavigationBean;
 import com.android.wanandroid.module.book.bookbeans.BookSystemBean;
+import com.android.wanandroid.module.wechat.DataBean;
+
+import com.android.wanandroid.module.wechat.WechatListBean;
 import com.android.wanandroid.test.HttpResult;
 import com.android.wanandroid.test.entity.Test;
 
@@ -18,6 +21,15 @@ public interface HttpService {
 
     @GET("https://www.wanandroid.com/navi/json")
     Observable<HttpResult<List<BookNavigationBean>>> getBookNavigationList();
+
+    //公众号
+    @GET("https://wanandroid.com/wxarticle/chapters/json")
+    Observable<HttpResult<List<DataBean>>> getWechatList();
+
+    //公众号page页
+    @GET("https://wanandroid.com/wxarticle/list/{id}/{page}/json")
+    Observable<HttpResult<WechatListBean>> getWechatLists(@Path("id") int id, @Path("page") int page);
+
 
     @GET("https://www.wanandroid.com/tree/json")
     Observable<HttpResult<List<BookSystemBean>>> getBookSystemList();

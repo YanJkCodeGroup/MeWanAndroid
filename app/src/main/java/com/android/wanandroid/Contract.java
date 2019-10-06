@@ -5,6 +5,9 @@ import com.android.mymvp.base.Interface.IBasePresenter;
 import com.android.mymvp.base.Interface.IBaseView;
 import com.android.mymvp.base.Interface.IBaseViewback;
 import com.android.wanandroid.module.book.bookbeans.BookNavigationBean;
+import com.android.wanandroid.module.wechat.DataBean;
+
+import com.android.wanandroid.module.wechat.WechatListBean;
 import com.android.wanandroid.module.book.bookbeans.BookSystemBean;
 import com.android.wanandroid.test.entity.Test;
 import com.trello.rxlifecycle2.LifecycleProvider;
@@ -27,6 +30,12 @@ public interface Contract {
         void bookNavigation(LifecycleProvider provider, BaseCallback<List<BookNavigationBean>> callback);
 
         void bookSystem(LifecycleProvider provider, BaseCallback<List<BookSystemBean>> callback);
+
+        //公众号
+        void wechat(LifecycleProvider provider,BaseCallback<List<DataBean>> callback);
+
+        //公众号page页
+        void  wechatlist(LifecycleProvider provider, int id, int page, BaseCallback<WechatListBean> callback);
     }
 
     //导航(book Navigation)
@@ -51,4 +60,24 @@ public interface Contract {
         void fail(String error);
     }
 
+
+    //公众号
+    public interface  wechatPresenter extends IBasePresenter<wechatView>{
+        void initwechatPresenter();
+    }
+
+    public interface wechatView extends  IBaseView<wechatPresenter>{
+        void  succeed(List<DataBean> wechatList);
+        void  fail(String error);
+    }
+
+    //公众号page页
+    public interface  wechatlistPresenter extends IBasePresenter<wechatlistView>{
+        void initwechatlistPresenter(int id,int page);
+    }
+
+    public interface wechatlistView extends  IBaseView<wechatlistPresenter>{
+        void  succeed(WechatListBean wechatList);
+        void  fail(String error);
+    }
 }
