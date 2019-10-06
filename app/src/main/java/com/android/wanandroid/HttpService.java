@@ -5,6 +5,8 @@ import com.android.wanandroid.module.book.bookbeans.BookSystemBean;
 import com.android.wanandroid.module.wechat.DataBean;
 
 import com.android.wanandroid.module.wechat.WechatListBean;
+import com.android.wanandroid.module.home.HomeBannerBean;
+import com.android.wanandroid.module.home.HomeBean;
 import com.android.wanandroid.test.HttpResult;
 import com.android.wanandroid.test.entity.Test;
 
@@ -33,5 +35,11 @@ public interface HttpService {
 
     @GET("https://www.wanandroid.com/tree/json")
     Observable<HttpResult<List<BookSystemBean>>> getBookSystemList();
+
+    @GET("https://www.wanandroid.com/article/list/1/json")
+    Observable<HttpResult<List<HomeBean>>> getHomeList();
+
+    @GET("https://www.wanandroid.com/banner/json")
+    Observable<HttpResult<List<HomeBannerBean>>> getHomeBannerList();
 
 }

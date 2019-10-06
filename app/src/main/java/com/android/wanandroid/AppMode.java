@@ -6,53 +6,54 @@ import com.android.wanandroid.module.book.bookbeans.BookNavigationBean;
 import com.android.wanandroid.module.book.bookbeans.BookSystemBean;
 import com.android.wanandroid.module.wechat.DataBean;
 import com.android.wanandroid.module.wechat.WechatListBean;
+import com.android.wanandroid.module.home.HomeBannerBean;
+import com.android.wanandroid.module.home.HomeBean;
 import com.android.wanandroid.test.entity.Test;
 import com.trello.rxlifecycle2.LifecycleProvider;
 
 import java.util.List;
 
 public class AppMode extends BaseModel<HttpService> implements Contract.AppModeImpl {
-   private static volatile AppMode sAppMode;
+    private static volatile AppMode sAppMode;
 
-   private AppMode() {
-   }
+    private AppMode() {
+    }
 
-   @Override
-   protected boolean isOpenHttpService() {
-      return true;
-   }
+    @Override
+    protected boolean isOpenHttpService() {
+        return true;
+    }
 
-   @Override
-   protected Class getHttpServiceClass() {
-      return HttpService.class;
-   }
+    @Override
+    protected Class getHttpServiceClass() {
+        return HttpService.class;
+    }
 
-   @Override
-   protected String getBaseUrl() {
-      return HttpConfig.BASE_URL;
-   }
+    @Override
+    protected String getBaseUrl() {
+        return HttpConfig.BASE_URL;
+    }
 
-   public static AppMode getAppMode() {
-      if (sAppMode == null) {
-         synchronized (AppMode.class) {
-            if (sAppMode == null) {
-               sAppMode = new AppMode();
+    public static AppMode getAppMode() {
+        if (sAppMode == null) {
+            synchronized (AppMode.class) {
+                if (sAppMode == null) {
+                    sAppMode = new AppMode();
+                }
             }
-         }
-      }
-      return sAppMode;
-   }
+        }
+        return sAppMode;
+    }
 
-   @Override
-   public void getTest(LifecycleProvider provider, int page, BaseCallback<Test> callback) {
-      observer(provider, getHttpService().getTest(page), callback);
-   }
+    @Override
+    public void getTest(LifecycleProvider provider, int page, BaseCallback<Test> callback) {
+        observer(provider, getHttpService().getTest(page), callback);
+    }
 
-   @Override
-   public void bookNavigation(LifecycleProvider provider,
-                              BaseCallback<List<BookNavigationBean>> callback) {
-      observer(provider, getHttpService().getBookNavigationList(), callback);
-   }
+    @Override
+    public void bookNavigation(LifecycleProvider provider, BaseCallback<List<BookNavigationBean>> callback) {
+        observer(provider, getHttpService().getBookNavigationList(), callback);
+    }
 
    @Override
    public void wechat(LifecycleProvider provider, BaseCallback<List<DataBean>> callback) {
@@ -69,4 +70,19 @@ public class AppMode extends BaseModel<HttpService> implements Contract.AppModeI
    public void bookSystem(LifecycleProvider provider, BaseCallback<List<BookSystemBean>> callback) {
       observer(provider, getHttpService().getBookSystemList(), callback);
    }
+    @Override
+    public void bookSystem(LifecycleProvider provider, BaseCallback<List<BookSystemBean>> callback) {
+        observer(provider, getHttpService().getBookSystemList(), callback);
+    }
+
+    @Override
+    public void getHome(LifecycleProvider provider, BaseCallback<List<HomeBean>> callback) {
+        observer(provider,getHttpService().getHomeList(),callback);
+    }
+
+    @Override
+    public void getHomeBanner(LifecycleProvider provider, BaseCallback<List<HomeBannerBean>> callback) {
+        observer(provider,getHttpService().getHomeBannerList(),callback);
+    }
+
 }

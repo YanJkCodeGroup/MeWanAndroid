@@ -9,6 +9,8 @@ import com.android.wanandroid.module.wechat.DataBean;
 
 import com.android.wanandroid.module.wechat.WechatListBean;
 import com.android.wanandroid.module.book.bookbeans.BookSystemBean;
+import com.android.wanandroid.module.home.HomeBannerBean;
+import com.android.wanandroid.module.home.HomeBean;
 import com.android.wanandroid.test.entity.Test;
 import com.trello.rxlifecycle2.LifecycleProvider;
 
@@ -30,6 +32,10 @@ public interface Contract {
         void bookNavigation(LifecycleProvider provider, BaseCallback<List<BookNavigationBean>> callback);
 
         void bookSystem(LifecycleProvider provider, BaseCallback<List<BookSystemBean>> callback);
+
+        void getHome(LifecycleProvider provider, BaseCallback<List<HomeBean>> callback);
+
+        void getHomeBanner(LifecycleProvider provider, BaseCallback<List<HomeBannerBean>> callback);
 
         //公众号
         void wechat(LifecycleProvider provider,BaseCallback<List<DataBean>> callback);
@@ -80,4 +86,22 @@ public interface Contract {
         void  succeed(WechatListBean wechatList);
         void  fail(String error);
     }
+    //首页(home)
+    public interface homePresenter extends IBasePresenter<homeView> {
+        void initHomePresenter();
+
+        void initHomeBannerPresenter();
+    }
+
+    public interface homeView extends IBaseView<homePresenter> {
+        void homeBeanSucceed(List<HomeBean> homeList);
+
+        void homeFail(String error);
+
+
+        void homeBannerSucceed(List<HomeBannerBean> homeBannerList);
+
+        void homeBannerFail(String error);
+    }
+
 }
