@@ -3,6 +3,9 @@ package com.android.wanandroid;
 import com.android.mymvp.base.BaseCallback;
 import com.android.mymvp.base.BaseModel;
 import com.android.wanandroid.module.book.bookbeans.BookNavigationBean;
+import com.android.wanandroid.module.wechat.DataBean;
+
+import com.android.wanandroid.module.wechat.WechatListBean;
 import com.android.wanandroid.test.entity.Test;
 import com.trello.rxlifecycle2.LifecycleProvider;
 
@@ -48,5 +51,14 @@ public class AppMode extends BaseModel<HttpService> implements Contract.AppModeI
    @Override
    public void bookNavigation(LifecycleProvider provider, BaseCallback<List<BookNavigationBean>> callback) {
       observer(provider,getHttpService().getBookNavigationList(),callback);
+   }
+
+   @Override
+   public void wechat(LifecycleProvider provider, BaseCallback<List<DataBean>> callback) {
+      observer(provider,getHttpService().getWechatList(),callback);
+   }
+   @Override
+   public void wechatlist(LifecycleProvider provider, int id,int page, BaseCallback<WechatListBean> callback) {
+      observer(provider,getHttpService().getWechatLists(id,page),callback);
    }
 }
