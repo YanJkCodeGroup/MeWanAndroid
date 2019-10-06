@@ -15,7 +15,7 @@ public abstract class BasePresenter<V extends IBaseView, M extends BaseModel>
         implements IBasePresenter<V>,
         IBaseModel<M> {
 
-   protected WeakReference<V> mView;
+   protected V mView;
    protected WeakReference<M> mModel = new WeakReference<>(initModel());
    private static ExecutorService executorService;
 
@@ -24,7 +24,7 @@ public abstract class BasePresenter<V extends IBaseView, M extends BaseModel>
     */
    @Override
    public void attachView(V v) {
-      this.mView = new WeakReference<>(v);
+      this.mView = v;
    }
 
    /**
@@ -34,7 +34,7 @@ public abstract class BasePresenter<V extends IBaseView, M extends BaseModel>
       if (mView == null) {
          return null;
       }
-      return (LifecycleProvider) mView.get();
+      return (LifecycleProvider) mView;
    }
 
    /**
@@ -67,13 +67,8 @@ public abstract class BasePresenter<V extends IBaseView, M extends BaseModel>
       }
       //view置空
       if (mView != null) {
-         mView.clear();
          mView = null;
       }
-   }
-
-   public final V getView() {
-      return mView.get();
    }
 
    public final M getModel() {

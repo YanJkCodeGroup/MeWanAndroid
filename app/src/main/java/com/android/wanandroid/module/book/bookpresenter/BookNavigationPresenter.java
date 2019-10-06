@@ -9,25 +9,28 @@ import com.android.wanandroid.module.book.bookbeans.BookNavigationBean;
 import java.util.List;
 
 public class BookNavigationPresenter extends BasePresenter<Contract.bookNavigationView, AppMode> implements Contract.bookNavigationPresenter {
-    @Override
-    public AppMode initModel() {
-        return AppMode.getAppMode();
-    }
+   @Override
+   public AppMode initModel() {
+      return AppMode.getAppMode();
+   }
 
-    @Override
-    public void initNavigationPresenter() {
-        getModel().bookNavigation(getLifecycleProvider(), new BaseCallback<List<BookNavigationBean>>() {
-            @Override
-            public void onCallSuccessful(List<BookNavigationBean> value) {
-                super.onCallSuccessful(value);
-                getView().succeed(value);
-            }
+   @Override
+   public void initNavigationPresenter() {
+      getModel().bookNavigation(getLifecycleProvider(),
+              new BaseCallback<List<BookNavigationBean>>() {
+         @Override
+         public void onCallSuccessful(List<BookNavigationBean> value) {
+            super.onCallSuccessful(value);
+            if (mView != null)
+               mView.succeed(value);
+         }
 
-            @Override
-            public <M extends Throwable> void onCallFailed(M msg) {
-                super.onCallFailed(msg);
-                getView().fail(msg.getMessage());
-            }
-        });
-    }
+         @Override
+         public <M extends Throwable> void onCallFailed(M msg) {
+            super.onCallFailed(msg);
+            if (mView != null)
+               mView.fail(msg.getMessage());
+         }
+      });
+   }
 }

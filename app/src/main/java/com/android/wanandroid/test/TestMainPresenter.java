@@ -17,7 +17,9 @@ public class TestMainPresenter extends BasePresenter<Contract.TestRequest.testVi
       getModel().getTest(getLifecycleProvider(), page, new BaseCallback<Test>() {
          @Override
          public void onCallSuccessful(Test value) {
-            getView().onSuccessful(value);
+            if (mView != null) {
+               mView.onSuccessful(value);
+            }
          }
       });
    }

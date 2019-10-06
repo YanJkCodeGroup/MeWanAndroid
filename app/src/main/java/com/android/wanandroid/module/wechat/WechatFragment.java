@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.android.mymvp.base.BaseMvpFragment;
+import com.android.mymvp.base.util.AppUtils;
 import com.android.wanandroid.Contract;
 import com.android.wanandroid.R;
 import com.android.wanandroid.module.wechat.wechatadapter.WechatListAdapter;
@@ -39,6 +40,14 @@ public class WechatFragment extends BaseMvpFragment<Contract.wechatPresenter> im
     @Override
     public int initLayout() {
         return R.layout.fragment_wechat;
+    }
+
+    @Override
+    protected void initView() {
+        wechatTabLayout.setPadding(wechatTabLayout.getPaddingLeft(),
+                AppUtils.getStateBar2(getContext()),
+                wechatTabLayout.getPaddingRight(),
+                wechatTabLayout.getPaddingBottom());
     }
 
     @Override
