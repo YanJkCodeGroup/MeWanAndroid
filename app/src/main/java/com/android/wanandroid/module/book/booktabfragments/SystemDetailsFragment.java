@@ -51,7 +51,7 @@ public class SystemDetailsFragment extends BaseMvpFragment<Contract.SystemDetail
         DividerItemDecoration dd = new DividerItemDecoration(mContext, LinearLayout.VERTICAL);
         dd.setDrawable(ContextCompat.getDrawable(mContext, R.drawable.system_details_line_shap));
         fragmentSystemRec.addItemDecoration(dd);
-        systemDetailsAdaper = new SystemDetailsAdaper(mContext);
+        systemDetailsAdaper = new SystemDetailsAdaper();
         fragmentSystemRec.setAdapter(systemDetailsAdaper);
         fragmentSystemSm.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
