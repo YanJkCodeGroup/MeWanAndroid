@@ -16,6 +16,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,5 +66,18 @@ public class ProjectFragment extends BaseMvpFragment<ProjectPresenter> implement
    @Override
    public void onFailed(String msg) {
 
+   }
+
+   @Override
+   public void setUserVisibleHint(boolean isVisibleToUser) {
+      super.setUserVisibleHint(isVisibleToUser);
+      if (rootView == null) {
+         return;
+      }
+
+      if (isVisibleToUser) {
+         unbinder = ButterKnife.bind(this, rootView);
+         initData();
+      }
    }
 }

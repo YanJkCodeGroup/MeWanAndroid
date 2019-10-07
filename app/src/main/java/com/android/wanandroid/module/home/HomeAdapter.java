@@ -26,7 +26,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<HomeBean.DatasBean> homeBeanList;
@@ -43,8 +42,10 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public void addData(List<HomeBean.DatasBean> homeList) {
-        this.homeBeanList.addAll(homeList);
-        notifyDataSetChanged();
+        if (homeBeanList != null) {
+            this.homeBeanList.addAll(homeList);
+            notifyDataSetChanged();
+        }
     }
 
     @NonNull

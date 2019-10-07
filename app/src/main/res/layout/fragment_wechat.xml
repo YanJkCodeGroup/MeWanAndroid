@@ -10,14 +10,14 @@
         android:id="@+id/wechat_tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabMode="scrollable"
-        app:tabIndicatorHeight="0dp"
-        app:tabSelectedTextColor="@color/cardview_light_background"
-        app:tabTextColor="@color/c_636363"
-        android:background="@color/design_default_color_primary"
+        android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@android:color/white"
+        app:tabTextColor="@color/c_e7e7e7" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/wechat_vp"
