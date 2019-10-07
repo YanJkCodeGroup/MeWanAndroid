@@ -43,8 +43,10 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public void addData(List<HomeBean.DatasBean> homeList) {
-        this.homeBeanList.addAll(homeList);
-        notifyDataSetChanged();
+        if (homeBeanList != null) {
+            this.homeBeanList.addAll(homeList);
+            notifyDataSetChanged();
+        }
     }
 
     @NonNull
