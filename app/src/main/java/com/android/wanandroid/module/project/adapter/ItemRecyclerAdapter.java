@@ -36,10 +36,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
       notifyDataSetChanged();
    }
 
-   public void addData(List<ProjectItemData.DatasBean> mProjectLists) {
-      mList.addAll(mProjectLists);
-      notifyDataSetChanged();
-   }
+   private OnItemClickListener onItemClickListener;
 
    @NonNull
    @Override
@@ -157,6 +154,22 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
          super(itemView);
          ButterKnife.bind(this, itemView);
       }
+   }
+
+   public void addData(List<ProjectItemData.DatasBean> mProjectLists) {
+      if (mList != null) {
+         mList.addAll(mProjectLists);
+         notifyDataSetChanged();
+      }
+
+   }
+
+   public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+      this.onItemClickListener = onItemClickListener;
+   }
+
+   public interface OnItemClickListener {
+      void onItemClick(View v);
    }
 
 }

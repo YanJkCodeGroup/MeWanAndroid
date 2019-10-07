@@ -13,25 +13,46 @@ public class HomePresenter extends BasePresenter<Contract.HomeView, AppMode> imp
         return AppMode.getAppMode();
     }
 
+
     @Override
-    public void initHomePresenter() {
-        getModel().getHome(getLifecycleProvider(), new BaseCallback<List<HomeBean>>() {
+    public void initHomePresenter(int page) {
+        getModel().getHome(getLifecycleProvider(), new BaseCallback<HomeBean>() {
             @Override
-            public void onCallSuccessful(List<HomeBean> value) {
+            public void onCallSuccessful(HomeBean value) {
                 super.onCallSuccessful(value);
-//                getView().succeed(value);
+                if (mView != null) {
+                    mView.homeBeanSucceed(value);
+                }
             }
 
             @Override
             public <M extends Throwable> void onCallFailed(M msg) {
                 super.onCallFailed(msg);
-//                getView().fail(msg.getMessage());
+                if (mView != null) {
+                    mView.homeFail(msg.getMessage());
+                }
             }
-        });
+        },page);
     }
 
     @Override
     public void initHomeBannerPresenter() {
+        getModel().getHomeBanner(getLifecycleProvider(), new BaseCallback<List<HomeBannerBean>>() {
+            @Override
+            public void onCallSuccessful(List<HomeBannerBean> value) {
+                super.onCallSuccessful(value);
+                if (mView != null) {
+                    mView.homeBannerSucceed(value);
+                }
+            }
 
+            @Override
+            public <M extends Throwable> void onCallFailed(M msg) {
+                super.onCallFailed(msg);
+                if (mView != null) {
+                    mView.homeBannerFail(msg.getMessage());
+                }
+            }
+        });
     }
 }
