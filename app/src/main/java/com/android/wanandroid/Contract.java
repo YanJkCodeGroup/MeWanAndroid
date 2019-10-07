@@ -35,7 +35,7 @@ public interface Contract {
 
       void bookSystem(LifecycleProvider provider, BaseCallback<List<BookSystemBean>> callback);
 
-      void getHome(LifecycleProvider provider, BaseCallback<List<HomeBean>> callback);
+      void getHome(LifecycleProvider provider, BaseCallback<List<HomeBean.DatasBean>> callback);
 
       void getHomeBanner(LifecycleProvider provider, BaseCallback<List<HomeBannerBean>> callback);
 
@@ -103,13 +103,13 @@ public interface Contract {
 
    //首页(home)
    interface HomePresenter extends IBasePresenter<HomeView> {
-      void initHomePresenter();
+      void initHomePresenter(int page);
 
       void initHomeBannerPresenter();
    }
 
    interface HomeView extends IBaseView<HomePresenter> {
-      void homeBeanSucceed(List<HomeBean> homeList);
+      void homeBeanSucceed(List<HomeBean.DatasBean> homeList);
 
       void homeFail(String error);
 

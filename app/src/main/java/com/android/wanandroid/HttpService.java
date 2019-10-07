@@ -48,7 +48,7 @@ public interface HttpService {
                                                               @Query("cid") int id);
 
    @GET("article/list/1/json")
-   Observable<HttpResult<List<HomeBean>>> getHomeList();
+   Observable<HttpResult<List<HomeBean.DatasBean>>> getHomeList();
 
    @GET("banner/json")
    Observable<HttpResult<List<HomeBannerBean>>> getHomeBannerList();

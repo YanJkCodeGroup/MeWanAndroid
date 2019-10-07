@@ -5,433 +5,397 @@ import java.util.List;
 public class HomeBean {
 
     /**
-     * data : {"curPage":2,"datas":[{"apkLink":"","audit":1,"author":"郭霖","chapterId":409,"chapterName":"郭霖","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9396,"link":"https://mp.weixin.qq.com/s/6LkQrICuA1_sOedRzXXrmA","niceDate":"2019-09-25","niceShareDate":"2019-09-27","origin":"","prefix":"","projectLink":"","publishTime":1569340800000,"selfVisible":0,"shareDate":1569586322000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/409/1"}],"title":"你该知道的okhttp3拦截器的那些事","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"玉刚说","chapterId":410,"chapterName":"玉刚说","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9418,"link":"https://mp.weixin.qq.com/s/JaIJwuXnV0YCb1PwdXCMXg","niceDate":"2019-09-25","niceShareDate":"2019-09-28","origin":"","prefix":"","projectLink":"","publishTime":1569340800000,"selfVisible":0,"shareDate":1569677769000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/410/1"}],"title":"Java：控制反转（IoC）与依赖注入（DI）","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"承香墨影","chapterId":411,"chapterName":"承香墨影","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9421,"link":"https://mp.weixin.qq.com/s/z1yEzR9rqUrTMLulxvWjqw","niceDate":"2019-09-25","niceShareDate":"2019-09-28","origin":"","prefix":"","projectLink":"","publishTime":1569340800000,"selfVisible":0,"shareDate":1569677975000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/411/1"}],"title":"Kotlin干掉了findViewById，但用不好也会有性能问题","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":" susion","chapterId":495,"chapterName":"booster","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9327,"link":"https://juejin.im/post/5d84c0236fb9a06ae57d2b65","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569338205000,"selfVisible":0,"shareDate":1569338205000,"shareUser":"","superChapterId":461,"superChapterName":"常见开源库源码解析","tags":[],"title":"booster分析-App资源压缩","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":" Drummor","chapterId":173,"chapterName":"Choreographer","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9326,"link":"https://juejin.im/post/5cb1bafe6fb9a068a84fda40","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569338189000,"selfVisible":0,"shareDate":1569338189000,"shareUser":"","superChapterId":171,"superChapterName":"framework","tags":[],"title":"Android 怎么就不卡了呢之Choreographer","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"Drummor","chapterId":423,"chapterName":"Architecture","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9325,"link":"https://juejin.im/post/5d2aa5985188257c3d2cecef","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569338084000,"selfVisible":0,"shareDate":1569338084000,"shareUser":"","superChapterId":423,"superChapterName":"Jetpack","tags":[],"title":"横向对比Jetpack、RxJava、Glide框架中对组件生命周期Lifecycle感知原理","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":76,"chapterName":"项目架构","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9300,"link":"https://mp.weixin.qq.com/s/_6p6vfce7m5E8AwGDg2cZg","niceDate":"2019-09-24","niceShareDate":"2019-09-23","origin":"","prefix":"","projectLink":"","publishTime":1569255115000,"selfVisible":0,"shareDate":1569249942000,"shareUser":"ZYLAB","superChapterId":74,"superChapterName":"热门专题","tags":[],"title":"Android 开发中的架构模式 -- MVC / MVP / MVVM","type":0,"userId":10577,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"猴子007","chapterId":308,"chapterName":"多线程","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9306,"link":"https://www.jianshu.com/p/64240319ed60","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569255081000,"selfVisible":0,"shareDate":1569255081000,"shareUser":"","superChapterId":245,"superChapterName":"Java深入","tags":[],"title":"一文解决内存屏障","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"求闲居士","chapterId":346,"chapterName":"JVM","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9305,"link":"https://www.jianshu.com/p/713d24fa9982","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569255058000,"selfVisible":0,"shareDate":1569255058000,"shareUser":"","superChapterId":245,"superChapterName":"Java深入","tags":[],"title":"Java 虚拟机、Art、Dalvik 他们的区别","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":" lijiankun24","chapterId":313,"chapterName":"字节码","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9304,"link":"https://www.jianshu.com/p/58f876f2e8b8","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569254992000,"selfVisible":0,"shareDate":1569254992000,"shareUser":"","superChapterId":245,"superChapterName":"Java深入","tags":[],"title":"虚拟机字节码执行引擎（读书笔记）","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"GitLqr","chapterId":149,"chapterName":"so文件相关","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9303,"link":"https://juejin.im/post/5d8482a05188254c8b7bc7f2","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569254965000,"selfVisible":0,"shareDate":1569254965000,"shareUser":"","superChapterId":149,"superChapterName":"JNI","tags":[],"title":"Android音视频&mdash;&mdash;Libyuv使用实战","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":" 承香墨影","chapterId":198,"chapterName":"基础概念","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9302,"link":"https://juejin.im/post/5d8882546fb9a06b233cfe65","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569254896000,"selfVisible":0,"shareDate":1569254896000,"shareUser":"","superChapterId":168,"superChapterName":"基础知识","tags":[],"title":"Android 本地化适配：RTL（right-to-left） 适配清单","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"鸿洋","chapterId":408,"chapterName":"鸿洋","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9388,"link":"https://mp.weixin.qq.com/s/9akzn3SByjjOyo-LBStmTg","niceDate":"2019-09-24","niceShareDate":"2019-09-27","origin":"","prefix":"","projectLink":"","publishTime":1569254400000,"selfVisible":0,"shareDate":1569585820000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/408/1"}],"title":"Android：你要了解的自定义View基础概念都在这里了！","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"玉刚说","chapterId":410,"chapterName":"玉刚说","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9417,"link":"https://mp.weixin.qq.com/s/mV6FaK7KgkxoR14j8ygWYA","niceDate":"2019-09-24","niceShareDate":"2019-09-28","origin":"","prefix":"","projectLink":"","publishTime":1569254400000,"selfVisible":0,"shareDate":1569677734000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/410/1"}],"title":"Flutter 实现原理及在马蜂窝的跨平台开发实践","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":78,"chapterName":"性能优化","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9265,"link":"https://www.jianshu.com/p/db56a3c52856","niceDate":"2019-09-23","niceShareDate":"2019-09-20","origin":"","prefix":"","projectLink":"","publishTime":1569171774000,"selfVisible":0,"shareDate":1568941515000,"shareUser":"yangchong211","superChapterId":74,"superChapterName":"热门专题","tags":[],"title":"Android优化总结","type":0,"userId":697,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":99,"chapterName":"具体案例","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9283,"link":"https://juejin.im/post/5d1842a66fb9a07ec63b2a1a","niceDate":"2019-09-23","niceShareDate":"2019-09-22","origin":"","prefix":"","projectLink":"","publishTime":1569171715000,"selfVisible":0,"shareDate":1569153812000,"shareUser":"星星y","superChapterId":126,"superChapterName":"自定义控件","tags":[],"title":"自定义Layout，让子View支持圆角属性","type":0,"userId":15603,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":76,"chapterName":"项目架构","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9284,"link":"https://blog.csdn.net/hailong0529/article/details/100312558","niceDate":"2019-09-23","niceShareDate":"2019-09-22","origin":"","prefix":"","projectLink":"","publishTime":1569171702000,"selfVisible":0,"shareDate":1569155164000,"shareUser":"左海龙","superChapterId":74,"superChapterName":"热门专题","tags":[],"title":"Android 老生常谈之MVC与MVP","type":0,"userId":20375,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"xiaoyang","chapterId":440,"chapterName":"官方","collect":false,"courseId":13,"desc":"<p>这是一个很常见的需求，那么到底有多少种方案，每种各有什么特点？<\/p>","envelopePic":"","fresh":false,"id":9233,"link":"https://www.wanandroid.com/wenda/show/9233","niceDate":"2019-09-23","niceShareDate":"2019-09-17","origin":"","prefix":"","projectLink":"","publishTime":1569171675000,"selfVisible":0,"shareDate":1568731287000,"shareUser":"","superChapterId":440,"superChapterName":"问答","tags":[{"name":"问答","url":"/article/list/0?cid=440"}],"title":"每日一问 屏蔽连续点击的方案有哪些？","type":0,"userId":2,"visible":1,"zan":20},{"apkLink":"","audit":1,"author":"鸿洋","chapterId":408,"chapterName":"鸿洋","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9387,"link":"https://mp.weixin.qq.com/s/q0Vdx0qqYi54PffFq9pPnA","niceDate":"2019-09-23","niceShareDate":"2019-09-27","origin":"","prefix":"","projectLink":"","publishTime":1569168000000,"selfVisible":0,"shareDate":1569585796000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/408/1"}],"title":"GridLayoutManager这么用，你可能还真没尝试过","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"郭霖","chapterId":409,"chapterName":"郭霖","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9395,"link":"https://mp.weixin.qq.com/s/B4Jt9NQ8m6LmMPNG5Eu5YA","niceDate":"2019-09-23","niceShareDate":"2019-09-27","origin":"","prefix":"","projectLink":"","publishTime":1569168000000,"selfVisible":0,"shareDate":1569586302000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/409/1"}],"title":"在Flutter中玩自定义View真是其乐无穷","type":0,"userId":-1,"visible":1,"zan":0}],"offset":20,"over":false,"pageCount":361,"size":20,"total":7216}
-     * errorCode : 0
-     * errorMsg :
+     * curPage : 1
+     * datas : [{"apkLink":"","audit":1,"author":"xuexiangjys","chapterId":294,"chapterName":"完整项目","collect":false,"courseId":13,"desc":"一个简洁而又优雅的Android原生UI框架，解放你的双手！还不赶紧点击使用说明文档，体验一下吧！","envelopePic":"https://wanandroid.com/blogimgs/df78f4d6-94c6-4ed8-8b96-999f57a84262.png","fresh":false,"id":9494,"link":"https://www.wanandroid.com/blog/show/2680","niceDate":"1天前","niceShareDate":"1天前","origin":"","prefix":"","projectLink":"https://github.com/xuexiangjys/XUI","publishTime":1570252145000,"selfVisible":0,"shareDate":1570252145000,"shareUser":"","superChapterId":294,"superChapterName":"开源项目主Tab","tags":[{"name":"项目","url":"/project/list/1?cid=294"}],"title":"XUI 一个简洁而优雅的Android原生UI框架，解放你的双手！","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"soulqw","chapterId":358,"chapterName":"项目基础功能","collect":false,"courseId":13,"desc":"1.一行代码完成某个View,或者多个View的高亮展示\r\n2.高亮区域支持自定义大小、操作灵活\r\n3.顺应变化,基于Android X","envelopePic":"https://www.wanandroid.com/blogimgs/555764b3-2bc9-481b-b08d-9039e275c4e7.png","fresh":false,"id":9452,"link":"https://www.wanandroid.com/blog/show/2679","niceDate":"2019-09-29","niceShareDate":"2019-09-29","origin":"","prefix":"","projectLink":"https://github.com/soulqw/Curtain","publishTime":1569765101000,"selfVisible":0,"shareDate":1569765101000,"shareUser":"","superChapterId":294,"superChapterName":"开源项目主Tab","tags":[{"name":"项目","url":"/project/list/1?cid=358"}],"title":"Curtain-一个更简单更方便的View 高亮库","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":296,"chapterName":"阅读","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9438,"link":"https://mp.weixin.qq.com/s?__biz=MzI3OTcyNjQ5MQ==&amp;mid=2247483781&amp;idx=1&amp;sn=c423dfc1737b54de893133f7df5afcdc&amp;chksm=eb421171dc3598678e8a5da7d629c4ecc172d7c06602e30be41385dadc6b5f907bd773c2e663&amp;token=579360501&amp;lang=zh_CN#rd","niceDate":"2019-09-29","niceShareDate":"2019-09-29","origin":"","prefix":"","projectLink":"","publishTime":1569764960000,"selfVisible":0,"shareDate":1569717139000,"shareUser":"ZYLAB","superChapterId":202,"superChapterName":"延伸技术","tags":[],"title":"软件开发过程中的思维方式 -- 如何分析问题","type":0,"userId":10577,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":78,"chapterName":"性能优化","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9439,"link":"https://blog.csdn.net/csdn_aiyang/article/details/74989318","niceDate":"2019-09-29","niceShareDate":"2019-09-29","origin":"","prefix":"","projectLink":"","publishTime":1569764913000,"selfVisible":0,"shareDate":1569717399000,"shareUser":"zhanlv","superChapterId":74,"superChapterName":"热门专题","tags":[],"title":"Android 性能优化之内存检测、卡顿优化、耗电优化、APK瘦身","type":0,"userId":22666,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":424,"chapterName":"协程","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9447,"link":"https://mp.weixin.qq.com/s/0qMWYrHDSRATw3Qj8vrTGQ","niceDate":"2019-09-29","niceShareDate":"2019-09-29","origin":"","prefix":"","projectLink":"","publishTime":1569764879000,"selfVisible":0,"shareDate":1569737781000,"shareUser":"MNY459","superChapterId":232,"superChapterName":"Kotlin","tags":[],"title":"到底什么是「非阻塞式」挂起？协程真的比线程更轻量级吗？","type":0,"userId":2199,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":182,"chapterName":"JNI编程","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9449,"link":"https://juejin.im/post/5d8a44096fb9a04ded310586","niceDate":"2019-09-29","niceShareDate":"2019-09-29","origin":"","prefix":"","projectLink":"","publishTime":1569764860000,"selfVisible":0,"shareDate":1569746265000,"shareUser":"叫我小明同学","superChapterId":149,"superChapterName":"JNI","tags":[],"title":"NDK 开发之使用 OpenCV 实现人脸识别","type":0,"userId":26222,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"玉刚说","chapterId":410,"chapterName":"玉刚说","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9419,"link":"https://mp.weixin.qq.com/s/wazr-s0jl83mbUGeAviTbA","niceDate":"2019-09-28","niceShareDate":"2019-09-28","origin":"","prefix":"","projectLink":"","publishTime":1569600000000,"selfVisible":0,"shareDate":1569677794000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/410/1"}],"title":"第一站仿小红书图片裁剪控件，深度解析大厂炫酷控件","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"code小生","chapterId":414,"chapterName":"code小生","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9428,"link":"https://mp.weixin.qq.com/s/u7s2n9ksyWSniurVqv5Uyw","niceDate":"2019-09-28","niceShareDate":"2019-09-28","origin":"","prefix":"","projectLink":"","publishTime":1569600000000,"selfVisible":0,"shareDate":1569679169000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/414/1"}],"title":"为什么还要在Activity中写业务代码？","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"程序亦非猿","chapterId":428,"chapterName":"程序亦非猿","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9437,"link":"https://mp.weixin.qq.com/s/Q7GfRwx66OF3DmHdhx7PJw","niceDate":"2019-09-28","niceShareDate":"2019-09-28","origin":"","prefix":"","projectLink":"","publishTime":1569600000000,"selfVisible":0,"shareDate":1569679988000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/428/1"}],"title":"接口幂等性这么重要，它是什么？怎么实现？","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":168,"chapterName":"Drawable","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9359,"link":"https://juejin.im/post/5d822fbf518825171501549f","niceDate":"2019-09-27","niceShareDate":"2019-09-26","origin":"","prefix":"","projectLink":"","publishTime":1569514868000,"selfVisible":0,"shareDate":1569479062000,"shareUser":"徐公码字","superChapterId":168,"superChapterName":"基础知识","tags":[],"title":"Android 点九图机制讲解及在聊天气泡中的应用","type":0,"userId":5339,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":494,"chapterName":"广场","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9362,"link":"https://juejin.im/post/5d8c593ee51d45783544b9ac","niceDate":"2019-09-27","niceShareDate":"2019-09-26","origin":"","prefix":"","projectLink":"","publishTime":1569514835000,"selfVisible":0,"shareDate":1569484206000,"shareUser":"祝起光","superChapterId":494,"superChapterName":"广场Tab","tags":[],"title":"HTTPS工作原理以及Android中如何防止抓包","type":0,"userId":27937,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":484,"chapterName":"okhttp","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9360,"link":"https://blog.csdn.net/gdutxiaoxu/article/details/100545600","niceDate":"2019-09-27","niceShareDate":"2019-09-26","origin":"","prefix":"","projectLink":"","publishTime":1569514830000,"selfVisible":0,"shareDate":1569479126000,"shareUser":"徐公码字","superChapterId":461,"superChapterName":"常见开源库源码解析","tags":[],"title":"一步步带你读懂 Okhttp 源码","type":0,"userId":5339,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":459,"chapterName":"Activity","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9368,"link":"https://blog.csdn.net/qq_41979349/article/details/100032327","niceDate":"2019-09-27","niceShareDate":"2019-09-26","origin":"","prefix":"","projectLink":"","publishTime":1569514781000,"selfVisible":0,"shareDate":1569505837000,"shareUser":"jsyjst","superChapterId":171,"superChapterName":"framework","tags":[],"title":"Android之9.0Activity启动流程(二)","type":0,"userId":16445,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":459,"chapterName":"Activity","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9367,"link":"https://blog.csdn.net/qq_41979349/article/details/98636121","niceDate":"2019-09-27","niceShareDate":"2019-09-26","origin":"","prefix":"","projectLink":"","publishTime":1569514771000,"selfVisible":0,"shareDate":1569505793000,"shareUser":"jsyjst","superChapterId":171,"superChapterName":"framework","tags":[],"title":"Android之9.0Activity启动流程(一)","type":0,"userId":16445,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"鸿洋","chapterId":408,"chapterName":"鸿洋","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9390,"link":"https://mp.weixin.qq.com/s/gs2bojFLBB4IAWMyN9lfnw","niceDate":"2019-09-27","niceShareDate":"2019-09-27","origin":"","prefix":"","projectLink":"","publishTime":1569513600000,"selfVisible":0,"shareDate":1569585904000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/408/1"}],"title":"简书，掘金，CSDN，公众号，我要&ldquo;打&rdquo;四个！","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"郭霖","chapterId":409,"chapterName":"郭霖","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9398,"link":"https://mp.weixin.qq.com/s/HpMu_QI_N-J18fNJG96yzA","niceDate":"2019-09-27","niceShareDate":"2019-09-27","origin":"","prefix":"","projectLink":"","publishTime":1569513600000,"selfVisible":0,"shareDate":1569586358000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/409/1"}],"title":"关于线程池的这 8 个问题你都能答上来吗？","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"程序亦非猿","chapterId":428,"chapterName":"程序亦非猿","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9436,"link":"https://mp.weixin.qq.com/s/yvG2KdNewPmOL_YVE4VX8A","niceDate":"2019-09-27","niceShareDate":"2019-09-28","origin":"","prefix":"","projectLink":"","publishTime":1569513600000,"selfVisible":0,"shareDate":1569679970000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/428/1"}],"title":"消灭 Java 代码的&ldquo;坏味道&rdquo;","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"郭霖","chapterId":409,"chapterName":"郭霖","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9397,"link":"https://mp.weixin.qq.com/s/heBoKE2UqMgp4_zm_fciuA","niceDate":"2019-09-26","niceShareDate":"2019-09-27","origin":"","prefix":"","projectLink":"","publishTime":1569427200000,"selfVisible":0,"shareDate":1569586338000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/409/1"}],"title":"性能优化，还得看AspectJ","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":" 无异","chapterId":497,"chapterName":"instant run","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9345,"link":"https://juejin.im/post/5d8ad352f265da5b6b62f01c","niceDate":"2019-09-25","niceShareDate":"2019-09-25","origin":"","prefix":"","projectLink":"","publishTime":1569423976000,"selfVisible":0,"shareDate":1569423976000,"shareUser":"","superChapterId":461,"superChapterName":"常见开源库源码解析","tags":[],"title":"更深入理解instant-run&mdash;&mdash;源码篇","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"鸿洋","chapterId":408,"chapterName":"鸿洋","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9389,"link":"https://mp.weixin.qq.com/s/chcF5vRnFTvSlPti9mfa6A","niceDate":"2019-09-25","niceShareDate":"2019-09-27","origin":"","prefix":"","projectLink":"","publishTime":1569340800000,"selfVisible":0,"shareDate":1569585837000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/408/1"}],"title":"关于MVC/MVP/MVVM的一些错误认识","type":0,"userId":-1,"visible":1,"zan":0}]
+     * offset : 0
+     * over : false
+     * pageCount : 361
+     * size : 20
+     * total : 7216
      */
 
-    private DataBean data;
-    private int errorCode;
-    private String errorMsg;
+    private int curPage;
+    private int offset;
+    private boolean over;
+    private int pageCount;
+    private int size;
+    private int total;
+    private List<DatasBean> datas;
 
-    public DataBean getData() {
-        return data;
+    public int getCurPage() {
+        return curPage;
     }
 
-    public void setData(DataBean data) {
-        this.data = data;
+    public void setCurPage(int curPage) {
+        this.curPage = curPage;
     }
 
-    public int getErrorCode() {
-        return errorCode;
+    public int getOffset() {
+        return offset;
     }
 
-    public void setErrorCode(int errorCode) {
-        this.errorCode = errorCode;
+    public void setOffset(int offset) {
+        this.offset = offset;
     }
 
-    public String getErrorMsg() {
-        return errorMsg;
+    public boolean isOver() {
+        return over;
     }
 
-    public void setErrorMsg(String errorMsg) {
-        this.errorMsg = errorMsg;
+    public void setOver(boolean over) {
+        this.over = over;
     }
 
-    public static class DataBean {
+    public int getPageCount() {
+        return pageCount;
+    }
+
+    public void setPageCount(int pageCount) {
+        this.pageCount = pageCount;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public List<DatasBean> getDatas() {
+        return datas;
+    }
+
+    public void setDatas(List<DatasBean> datas) {
+        this.datas = datas;
+    }
+
+    public static class DatasBean {
         /**
-         * curPage : 2
-         * datas : [{"apkLink":"","audit":1,"author":"郭霖","chapterId":409,"chapterName":"郭霖","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9396,"link":"https://mp.weixin.qq.com/s/6LkQrICuA1_sOedRzXXrmA","niceDate":"2019-09-25","niceShareDate":"2019-09-27","origin":"","prefix":"","projectLink":"","publishTime":1569340800000,"selfVisible":0,"shareDate":1569586322000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/409/1"}],"title":"你该知道的okhttp3拦截器的那些事","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"玉刚说","chapterId":410,"chapterName":"玉刚说","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9418,"link":"https://mp.weixin.qq.com/s/JaIJwuXnV0YCb1PwdXCMXg","niceDate":"2019-09-25","niceShareDate":"2019-09-28","origin":"","prefix":"","projectLink":"","publishTime":1569340800000,"selfVisible":0,"shareDate":1569677769000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/410/1"}],"title":"Java：控制反转（IoC）与依赖注入（DI）","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"承香墨影","chapterId":411,"chapterName":"承香墨影","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9421,"link":"https://mp.weixin.qq.com/s/z1yEzR9rqUrTMLulxvWjqw","niceDate":"2019-09-25","niceShareDate":"2019-09-28","origin":"","prefix":"","projectLink":"","publishTime":1569340800000,"selfVisible":0,"shareDate":1569677975000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/411/1"}],"title":"Kotlin干掉了findViewById，但用不好也会有性能问题","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":" susion","chapterId":495,"chapterName":"booster","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9327,"link":"https://juejin.im/post/5d84c0236fb9a06ae57d2b65","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569338205000,"selfVisible":0,"shareDate":1569338205000,"shareUser":"","superChapterId":461,"superChapterName":"常见开源库源码解析","tags":[],"title":"booster分析-App资源压缩","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":" Drummor","chapterId":173,"chapterName":"Choreographer","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9326,"link":"https://juejin.im/post/5cb1bafe6fb9a068a84fda40","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569338189000,"selfVisible":0,"shareDate":1569338189000,"shareUser":"","superChapterId":171,"superChapterName":"framework","tags":[],"title":"Android 怎么就不卡了呢之Choreographer","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"Drummor","chapterId":423,"chapterName":"Architecture","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9325,"link":"https://juejin.im/post/5d2aa5985188257c3d2cecef","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569338084000,"selfVisible":0,"shareDate":1569338084000,"shareUser":"","superChapterId":423,"superChapterName":"Jetpack","tags":[],"title":"横向对比Jetpack、RxJava、Glide框架中对组件生命周期Lifecycle感知原理","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":76,"chapterName":"项目架构","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9300,"link":"https://mp.weixin.qq.com/s/_6p6vfce7m5E8AwGDg2cZg","niceDate":"2019-09-24","niceShareDate":"2019-09-23","origin":"","prefix":"","projectLink":"","publishTime":1569255115000,"selfVisible":0,"shareDate":1569249942000,"shareUser":"ZYLAB","superChapterId":74,"superChapterName":"热门专题","tags":[],"title":"Android 开发中的架构模式 -- MVC / MVP / MVVM","type":0,"userId":10577,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"猴子007","chapterId":308,"chapterName":"多线程","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9306,"link":"https://www.jianshu.com/p/64240319ed60","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569255081000,"selfVisible":0,"shareDate":1569255081000,"shareUser":"","superChapterId":245,"superChapterName":"Java深入","tags":[],"title":"一文解决内存屏障","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"求闲居士","chapterId":346,"chapterName":"JVM","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9305,"link":"https://www.jianshu.com/p/713d24fa9982","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569255058000,"selfVisible":0,"shareDate":1569255058000,"shareUser":"","superChapterId":245,"superChapterName":"Java深入","tags":[],"title":"Java 虚拟机、Art、Dalvik 他们的区别","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":" lijiankun24","chapterId":313,"chapterName":"字节码","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9304,"link":"https://www.jianshu.com/p/58f876f2e8b8","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569254992000,"selfVisible":0,"shareDate":1569254992000,"shareUser":"","superChapterId":245,"superChapterName":"Java深入","tags":[],"title":"虚拟机字节码执行引擎（读书笔记）","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"GitLqr","chapterId":149,"chapterName":"so文件相关","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9303,"link":"https://juejin.im/post/5d8482a05188254c8b7bc7f2","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569254965000,"selfVisible":0,"shareDate":1569254965000,"shareUser":"","superChapterId":149,"superChapterName":"JNI","tags":[],"title":"Android音视频&mdash;&mdash;Libyuv使用实战","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":" 承香墨影","chapterId":198,"chapterName":"基础概念","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9302,"link":"https://juejin.im/post/5d8882546fb9a06b233cfe65","niceDate":"2019-09-24","niceShareDate":"2019-09-24","origin":"","prefix":"","projectLink":"","publishTime":1569254896000,"selfVisible":0,"shareDate":1569254896000,"shareUser":"","superChapterId":168,"superChapterName":"基础知识","tags":[],"title":"Android 本地化适配：RTL（right-to-left） 适配清单","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"鸿洋","chapterId":408,"chapterName":"鸿洋","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9388,"link":"https://mp.weixin.qq.com/s/9akzn3SByjjOyo-LBStmTg","niceDate":"2019-09-24","niceShareDate":"2019-09-27","origin":"","prefix":"","projectLink":"","publishTime":1569254400000,"selfVisible":0,"shareDate":1569585820000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/408/1"}],"title":"Android：你要了解的自定义View基础概念都在这里了！","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"玉刚说","chapterId":410,"chapterName":"玉刚说","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9417,"link":"https://mp.weixin.qq.com/s/mV6FaK7KgkxoR14j8ygWYA","niceDate":"2019-09-24","niceShareDate":"2019-09-28","origin":"","prefix":"","projectLink":"","publishTime":1569254400000,"selfVisible":0,"shareDate":1569677734000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/410/1"}],"title":"Flutter 实现原理及在马蜂窝的跨平台开发实践","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":78,"chapterName":"性能优化","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9265,"link":"https://www.jianshu.com/p/db56a3c52856","niceDate":"2019-09-23","niceShareDate":"2019-09-20","origin":"","prefix":"","projectLink":"","publishTime":1569171774000,"selfVisible":0,"shareDate":1568941515000,"shareUser":"yangchong211","superChapterId":74,"superChapterName":"热门专题","tags":[],"title":"Android优化总结","type":0,"userId":697,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":99,"chapterName":"具体案例","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9283,"link":"https://juejin.im/post/5d1842a66fb9a07ec63b2a1a","niceDate":"2019-09-23","niceShareDate":"2019-09-22","origin":"","prefix":"","projectLink":"","publishTime":1569171715000,"selfVisible":0,"shareDate":1569153812000,"shareUser":"星星y","superChapterId":126,"superChapterName":"自定义控件","tags":[],"title":"自定义Layout，让子View支持圆角属性","type":0,"userId":15603,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"","chapterId":76,"chapterName":"项目架构","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9284,"link":"https://blog.csdn.net/hailong0529/article/details/100312558","niceDate":"2019-09-23","niceShareDate":"2019-09-22","origin":"","prefix":"","projectLink":"","publishTime":1569171702000,"selfVisible":0,"shareDate":1569155164000,"shareUser":"左海龙","superChapterId":74,"superChapterName":"热门专题","tags":[],"title":"Android 老生常谈之MVC与MVP","type":0,"userId":20375,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"xiaoyang","chapterId":440,"chapterName":"官方","collect":false,"courseId":13,"desc":"<p>这是一个很常见的需求，那么到底有多少种方案，每种各有什么特点？<\/p>","envelopePic":"","fresh":false,"id":9233,"link":"https://www.wanandroid.com/wenda/show/9233","niceDate":"2019-09-23","niceShareDate":"2019-09-17","origin":"","prefix":"","projectLink":"","publishTime":1569171675000,"selfVisible":0,"shareDate":1568731287000,"shareUser":"","superChapterId":440,"superChapterName":"问答","tags":[{"name":"问答","url":"/article/list/0?cid=440"}],"title":"每日一问 屏蔽连续点击的方案有哪些？","type":0,"userId":2,"visible":1,"zan":20},{"apkLink":"","audit":1,"author":"鸿洋","chapterId":408,"chapterName":"鸿洋","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9387,"link":"https://mp.weixin.qq.com/s/q0Vdx0qqYi54PffFq9pPnA","niceDate":"2019-09-23","niceShareDate":"2019-09-27","origin":"","prefix":"","projectLink":"","publishTime":1569168000000,"selfVisible":0,"shareDate":1569585796000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/408/1"}],"title":"GridLayoutManager这么用，你可能还真没尝试过","type":0,"userId":-1,"visible":1,"zan":0},{"apkLink":"","audit":1,"author":"郭霖","chapterId":409,"chapterName":"郭霖","collect":false,"courseId":13,"desc":"","envelopePic":"","fresh":false,"id":9395,"link":"https://mp.weixin.qq.com/s/B4Jt9NQ8m6LmMPNG5Eu5YA","niceDate":"2019-09-23","niceShareDate":"2019-09-27","origin":"","prefix":"","projectLink":"","publishTime":1569168000000,"selfVisible":0,"shareDate":1569586302000,"shareUser":"","superChapterId":408,"superChapterName":"公众号","tags":[{"name":"公众号","url":"/wxarticle/list/409/1"}],"title":"在Flutter中玩自定义View真是其乐无穷","type":0,"userId":-1,"visible":1,"zan":0}]
-         * offset : 20
-         * over : false
-         * pageCount : 361
-         * size : 20
-         * total : 7216
+         * apkLink :
+         * audit : 1
+         * author : xuexiangjys
+         * chapterId : 294
+         * chapterName : 完整项目
+         * collect : false
+         * courseId : 13
+         * desc : 一个简洁而又优雅的Android原生UI框架，解放你的双手！还不赶紧点击使用说明文档，体验一下吧！
+         * envelopePic : https://wanandroid.com/blogimgs/df78f4d6-94c6-4ed8-8b96-999f57a84262.png
+         * fresh : false
+         * id : 9494
+         * link : https://www.wanandroid.com/blog/show/2680
+         * niceDate : 1天前
+         * niceShareDate : 1天前
+         * origin :
+         * prefix :
+         * projectLink : https://github.com/xuexiangjys/XUI
+         * publishTime : 1570252145000
+         * selfVisible : 0
+         * shareDate : 1570252145000
+         * shareUser :
+         * superChapterId : 294
+         * superChapterName : 开源项目主Tab
+         * tags : [{"name":"项目","url":"/project/list/1?cid=294"}]
+         * title : XUI 一个简洁而优雅的Android原生UI框架，解放你的双手！
+         * type : 0
+         * userId : -1
+         * visible : 1
+         * zan : 0
          */
 
-        private int curPage;
-        private int offset;
-        private boolean over;
-        private int pageCount;
-        private int size;
-        private int total;
-        private List<DatasBean> datas;
+        private String apkLink;
+        private int audit;
+        private String author;
+        private int chapterId;
+        private String chapterName;
+        private boolean collect;
+        private int courseId;
+        private String desc;
+        private String envelopePic;
+        private boolean fresh;
+        private int id;
+        private String link;
+        private String niceDate;
+        private String niceShareDate;
+        private String origin;
+        private String prefix;
+        private String projectLink;
+        private long publishTime;
+        private int selfVisible;
+        private long shareDate;
+        private String shareUser;
+        private int superChapterId;
+        private String superChapterName;
+        private String title;
+        private int type;
+        private int userId;
+        private int visible;
+        private int zan;
+        private List<TagsBean> tags;
 
-        public int getCurPage() {
-            return curPage;
+        public String getApkLink() {
+            return apkLink;
         }
 
-        public void setCurPage(int curPage) {
-            this.curPage = curPage;
+        public void setApkLink(String apkLink) {
+            this.apkLink = apkLink;
         }
 
-        public int getOffset() {
-            return offset;
+        public int getAudit() {
+            return audit;
         }
 
-        public void setOffset(int offset) {
-            this.offset = offset;
+        public void setAudit(int audit) {
+            this.audit = audit;
         }
 
-        public boolean isOver() {
-            return over;
+        public String getAuthor() {
+            return author;
         }
 
-        public void setOver(boolean over) {
-            this.over = over;
+        public void setAuthor(String author) {
+            this.author = author;
         }
 
-        public int getPageCount() {
-            return pageCount;
+        public int getChapterId() {
+            return chapterId;
         }
 
-        public void setPageCount(int pageCount) {
-            this.pageCount = pageCount;
+        public void setChapterId(int chapterId) {
+            this.chapterId = chapterId;
         }
 
-        public int getSize() {
-            return size;
+        public String getChapterName() {
+            return chapterName;
         }
 
-        public void setSize(int size) {
-            this.size = size;
+        public void setChapterName(String chapterName) {
+            this.chapterName = chapterName;
         }
 
-        public int getTotal() {
-            return total;
+        public boolean isCollect() {
+            return collect;
         }
 
-        public void setTotal(int total) {
-            this.total = total;
+        public void setCollect(boolean collect) {
+            this.collect = collect;
         }
 
-        public List<DatasBean> getDatas() {
-            return datas;
+        public int getCourseId() {
+            return courseId;
         }
 
-        public void setDatas(List<DatasBean> datas) {
-            this.datas = datas;
+        public void setCourseId(int courseId) {
+            this.courseId = courseId;
         }
 
-        public static class DatasBean {
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
+        public String getEnvelopePic() {
+            return envelopePic;
+        }
+
+        public void setEnvelopePic(String envelopePic) {
+            this.envelopePic = envelopePic;
+        }
+
+        public boolean isFresh() {
+            return fresh;
+        }
+
+        public void setFresh(boolean fresh) {
+            this.fresh = fresh;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getLink() {
+            return link;
+        }
+
+        public void setLink(String link) {
+            this.link = link;
+        }
+
+        public String getNiceDate() {
+            return niceDate;
+        }
+
+        public void setNiceDate(String niceDate) {
+            this.niceDate = niceDate;
+        }
+
+        public String getNiceShareDate() {
+            return niceShareDate;
+        }
+
+        public void setNiceShareDate(String niceShareDate) {
+            this.niceShareDate = niceShareDate;
+        }
+
+        public String getOrigin() {
+            return origin;
+        }
+
+        public void setOrigin(String origin) {
+            this.origin = origin;
+        }
+
+        public String getPrefix() {
+            return prefix;
+        }
+
+        public void setPrefix(String prefix) {
+            this.prefix = prefix;
+        }
+
+        public String getProjectLink() {
+            return projectLink;
+        }
+
+        public void setProjectLink(String projectLink) {
+            this.projectLink = projectLink;
+        }
+
+        public long getPublishTime() {
+            return publishTime;
+        }
+
+        public void setPublishTime(long publishTime) {
+            this.publishTime = publishTime;
+        }
+
+        public int getSelfVisible() {
+            return selfVisible;
+        }
+
+        public void setSelfVisible(int selfVisible) {
+            this.selfVisible = selfVisible;
+        }
+
+        public long getShareDate() {
+            return shareDate;
+        }
+
+        public void setShareDate(long shareDate) {
+            this.shareDate = shareDate;
+        }
+
+        public String getShareUser() {
+            return shareUser;
+        }
+
+        public void setShareUser(String shareUser) {
+            this.shareUser = shareUser;
+        }
+
+        public int getSuperChapterId() {
+            return superChapterId;
+        }
+
+        public void setSuperChapterId(int superChapterId) {
+            this.superChapterId = superChapterId;
+        }
+
+        public String getSuperChapterName() {
+            return superChapterName;
+        }
+
+        public void setSuperChapterName(String superChapterName) {
+            this.superChapterName = superChapterName;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public int getType() {
+            return type;
+        }
+
+        public void setType(int type) {
+            this.type = type;
+        }
+
+        public int getUserId() {
+            return userId;
+        }
+
+        public void setUserId(int userId) {
+            this.userId = userId;
+        }
+
+        public int getVisible() {
+            return visible;
+        }
+
+        public void setVisible(int visible) {
+            this.visible = visible;
+        }
+
+        public int getZan() {
+            return zan;
+        }
+
+        public void setZan(int zan) {
+            this.zan = zan;
+        }
+
+        public List<TagsBean> getTags() {
+            return tags;
+        }
+
+        public void setTags(List<TagsBean> tags) {
+            this.tags = tags;
+        }
+
+        public static class TagsBean {
             /**
-             * apkLink :
-             * audit : 1
-             * author : 郭霖
-             * chapterId : 409
-             * chapterName : 郭霖
-             * collect : false
-             * courseId : 13
-             * desc :
-             * envelopePic :
-             * fresh : false
-             * id : 9396
-             * link : https://mp.weixin.qq.com/s/6LkQrICuA1_sOedRzXXrmA
-             * niceDate : 2019-09-25
-             * niceShareDate : 2019-09-27
-             * origin :
-             * prefix :
-             * projectLink :
-             * publishTime : 1569340800000
-             * selfVisible : 0
-             * shareDate : 1569586322000
-             * shareUser :
-             * superChapterId : 408
-             * superChapterName : 公众号
-             * tags : [{"name":"公众号","url":"/wxarticle/list/409/1"}]
-             * title : 你该知道的okhttp3拦截器的那些事
-             * type : 0
-             * userId : -1
-             * visible : 1
-             * zan : 0
+             * name : 项目
+             * url : /project/list/1?cid=294
              */
 
-            private String apkLink;
-            private int audit;
-            private String author;
-            private int chapterId;
-            private String chapterName;
-            private boolean collect;
-            private int courseId;
-            private String desc;
-            private String envelopePic;
-            private boolean fresh;
-            private int id;
-            private String link;
-            private String niceDate;
-            private String niceShareDate;
-            private String origin;
-            private String prefix;
-            private String projectLink;
-            private long publishTime;
-            private int selfVisible;
-            private long shareDate;
-            private String shareUser;
-            private int superChapterId;
-            private String superChapterName;
-            private String title;
-            private int type;
-            private int userId;
-            private int visible;
-            private int zan;
-            private List<TagsBean> tags;
+            private String name;
+            private String url;
 
-            public String getApkLink() {
-                return apkLink;
+            public String getName() {
+                return name;
             }
 
-            public void setApkLink(String apkLink) {
-                this.apkLink = apkLink;
+            public void setName(String name) {
+                this.name = name;
             }
 
-            public int getAudit() {
-                return audit;
+            public String getUrl() {
+                return url;
             }
 
-            public void setAudit(int audit) {
-                this.audit = audit;
-            }
-
-            public String getAuthor() {
-                return author;
-            }
-
-            public void setAuthor(String author) {
-                this.author = author;
-            }
-
-            public int getChapterId() {
-                return chapterId;
-            }
-
-            public void setChapterId(int chapterId) {
-                this.chapterId = chapterId;
-            }
-
-            public String getChapterName() {
-                return chapterName;
-            }
-
-            public void setChapterName(String chapterName) {
-                this.chapterName = chapterName;
-            }
-
-            public boolean isCollect() {
-                return collect;
-            }
-
-            public void setCollect(boolean collect) {
-                this.collect = collect;
-            }
-
-            public int getCourseId() {
-                return courseId;
-            }
-
-            public void setCourseId(int courseId) {
-                this.courseId = courseId;
-            }
-
-            public String getDesc() {
-                return desc;
-            }
-
-            public void setDesc(String desc) {
-                this.desc = desc;
-            }
-
-            public String getEnvelopePic() {
-                return envelopePic;
-            }
-
-            public void setEnvelopePic(String envelopePic) {
-                this.envelopePic = envelopePic;
-            }
-
-            public boolean isFresh() {
-                return fresh;
-            }
-
-            public void setFresh(boolean fresh) {
-                this.fresh = fresh;
-            }
-
-            public int getId() {
-                return id;
-            }
-
-            public void setId(int id) {
-                this.id = id;
-            }
-
-            public String getLink() {
-                return link;
-            }
-
-            public void setLink(String link) {
-                this.link = link;
-            }
-
-            public String getNiceDate() {
-                return niceDate;
-            }
-
-            public void setNiceDate(String niceDate) {
-                this.niceDate = niceDate;
-            }
-
-            public String getNiceShareDate() {
-                return niceShareDate;
-            }
-
-            public void setNiceShareDate(String niceShareDate) {
-                this.niceShareDate = niceShareDate;
-            }
-
-            public String getOrigin() {
-                return origin;
-            }
-
-            public void setOrigin(String origin) {
-                this.origin = origin;
-            }
-
-            public String getPrefix() {
-                return prefix;
-            }
-
-            public void setPrefix(String prefix) {
-                this.prefix = prefix;
-            }
-
-            public String getProjectLink() {
-                return projectLink;
-            }
-
-            public void setProjectLink(String projectLink) {
-                this.projectLink = projectLink;
-            }
-
-            public long getPublishTime() {
-                return publishTime;
-            }
-
-            public void setPublishTime(long publishTime) {
-                this.publishTime = publishTime;
-            }
-
-            public int getSelfVisible() {
-                return selfVisible;
-            }
-
-            public void setSelfVisible(int selfVisible) {
-                this.selfVisible = selfVisible;
-            }
-
-            public long getShareDate() {
-                return shareDate;
-            }
-
-            public void setShareDate(long shareDate) {
-                this.shareDate = shareDate;
-            }
-
-            public String getShareUser() {
-                return shareUser;
-            }
-
-            public void setShareUser(String shareUser) {
-                this.shareUser = shareUser;
-            }
-
-            public int getSuperChapterId() {
-                return superChapterId;
-            }
-
-            public void setSuperChapterId(int superChapterId) {
-                this.superChapterId = superChapterId;
-            }
-
-            public String getSuperChapterName() {
-                return superChapterName;
-            }
-
-            public void setSuperChapterName(String superChapterName) {
-                this.superChapterName = superChapterName;
-            }
-
-            public String getTitle() {
-                return title;
-            }
-
-            public void setTitle(String title) {
-                this.title = title;
-            }
-
-            public int getType() {
-                return type;
-            }
-
-            public void setType(int type) {
-                this.type = type;
-            }
-
-            public int getUserId() {
-                return userId;
-            }
-
-            public void setUserId(int userId) {
-                this.userId = userId;
-            }
-
-            public int getVisible() {
-                return visible;
-            }
-
-            public void setVisible(int visible) {
-                this.visible = visible;
-            }
-
-            public int getZan() {
-                return zan;
-            }
-
-            public void setZan(int zan) {
-                this.zan = zan;
-            }
-
-            public List<TagsBean> getTags() {
-                return tags;
-            }
-
-            public void setTags(List<TagsBean> tags) {
-                this.tags = tags;
-            }
-
-            public static class TagsBean {
-                /**
-                 * name : 公众号
-                 * url : /wxarticle/list/409/1
-                 */
-
-                private String name;
-                private String url;
-
-                public String getName() {
-                    return name;
-                }
-
-                public void setName(String name) {
-                    this.name = name;
-                }
-
-                public String getUrl() {
-                    return url;
-                }
-
-                public void setUrl(String url) {
-                    this.url = url;
-                }
+            public void setUrl(String url) {
+                this.url = url;
             }
         }
     }
