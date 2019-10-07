@@ -35,6 +35,9 @@ public class ProjectItemFragment extends BaseMvpFragment<Contract.ProjectContrac
    private ItemRecyclerAdapter mAdapter;
    private int page = 1;
 
+   public ProjectItemFragment() {
+   }
+
    public ProjectItemFragment(int itemId) {
       this.itemId = itemId;
    }
