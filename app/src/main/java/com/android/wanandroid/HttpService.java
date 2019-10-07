@@ -5,6 +5,7 @@ import com.android.wanandroid.module.book.bookbeans.BookSystemBean;
 import com.android.wanandroid.module.book.bookbeans.SystemDetailsBean;
 import com.android.wanandroid.module.home.HomeBannerBean;
 import com.android.wanandroid.module.home.HomeBean;
+import com.android.wanandroid.module.home.HomeTopBean;
 import com.android.wanandroid.module.project.entity.ProjectItemData;
 import com.android.wanandroid.module.project.entity.ProjectList;
 import com.android.wanandroid.module.wechat.WechatBean;
@@ -47,13 +48,17 @@ public interface HttpService {
    @GET("project/list/{page}/json?")
    Observable<HttpResult<ProjectItemData>> getProjectItemData(@Path("page") int page,
                                                               @Query("cid") int id);
-
+   //首页文章
    @GET("article/list/{page}/json")
    Observable<HttpResult<HomeBean>> getHomeList(@Path("page") int page);
 
+   //项目Banner
    @GET("banner/json")
    Observable<HttpResult<List<HomeBannerBean>>> getHomeBannerList();
 
+   //项目置顶文章
+   @GET("article/top/json")
+   Observable<HttpResult<List<HomeTopBean>>> getHomeTopList();
 
     //系统详情
     @GET("article/list/{page}/json?")

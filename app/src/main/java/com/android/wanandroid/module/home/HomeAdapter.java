@@ -1,6 +1,7 @@
 package com.android.wanandroid.module.home;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,18 +27,19 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<HomeBean.DatasBean> homeBeanList;
     private List<HomeBannerBean> homeBannerBeanList;
+    private List<HomeTopBean> homeTopBeanList;
 
 
-    public void initData(List<HomeBean.DatasBean> homeList, List<HomeBannerBean> homeBannerList) {
+    public void initData(List<HomeBean.DatasBean> homeList, List<HomeBannerBean> homeBannerList, List<HomeTopBean> homeTopBeanList) {
         if (homeBeanList != null) {
             homeBeanList.clear();
         }
         this.homeBeanList = homeList;
+        this.homeTopBeanList = homeTopBeanList;
         this.homeBannerBeanList = homeBannerList;
         notifyDataSetChanged();
     }
@@ -55,9 +57,12 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (viewType == 0) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_homefragment_banner_layout, parent, false);
             return new ViewHolder1(view);
-        } else {
+        } else if (viewType == 1) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_item_layout, parent, false);
             return new ViewHolder2(view);
+        } else {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_item_layout, parent, false);
+            return new ViewHolder3(view);
         }
     }
 
@@ -80,9 +85,9 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         }
                     })
                     .start();
-        } else {
-            if (homeBannerBeanList.size() > 0) {
-                position = position - 1;
+        } else if (type==1){
+            if (homeBannerBeanList.size() > 0&&homeTopBeanList.size()>0) {
+                position = position - 2;
             }
             ViewHolder2 holder2 = (ViewHolder2) holder;
             HomeBean.DatasBean datasBean = homeBeanList.get(position);
@@ -162,17 +167,55 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     rvItemClick.OnClick(v, finalPosition);
                 }
             });
+        }else{
+            if (homeBannerBeanList.size()>0){
+                position=position-1;
+            }
+            ViewHolder3 holder3 = (ViewHolder3) holder;
+            HomeTopBean homeTopBean = homeTopBeanList.get(position);
+            TextView textView = new TextView(holder.itemView.getContext());
+            textView.setText("置顶 ·");
+            textView.setTextColor(Color.RED);
+            holder3.homeAuthor.setText(textView+homeTopBean.getAuthor());
+            holder3.homeDate.setText(homeTopBean.getNiceDate());
+            holder3.homeTitle.setText(homeTopBean.getTitle());
+            holder3.homeSuperChapterName.setText(homeTopBean.getSuperChapterName()+" · ");
+            holder3.homeName.setText(homeTopBean.getChapterName());
+//            holder3.homeTag.setText(homeTopBean.getTags().get(0).getName());
+            holder3.homeCollect.setOnClickListener(new CollectView.OnClickListener() {
+                @Override
+                public void onClick(CollectView v) {
+                    homeTopBean.setCollect(!homeTopBean.isCollect());
+                    //todo 收藏点击事件
+                }
+            });
+            //是否被收藏
+            if (homeTopBean.isCollect()) {
+                holder3.homeCollect.setChecked(true);
+            } else {
+                holder3.homeCollect.setChecked(false);
+            }
         }
     }
 
     @Override
     public int getItemCount() {
-        if (homeBannerBeanList != null && homeBeanList != null)
+        /*if (homeBannerBeanList != null && homeBeanList != null) {
             if (homeBannerBeanList.size() > 0) {
                 return homeBeanList.size() + 1;
             } else {
                 return homeBeanList.size();
             }
+        }*/
+        if (homeBannerBeanList != null && homeBeanList != null && homeTopBeanList != null) {
+            if (homeBannerBeanList.size() > 0 && homeTopBeanList.size() > 0) {
+                return homeBeanList.size() + 2;
+            } else if (homeBannerBeanList.size() > 0 || homeTopBeanList.size() > 0) {
+                return homeBeanList.size() + 1;
+            } else {
+                return homeBeanList.size();
+            }
+        }
         return 0;
     }
 
@@ -180,6 +223,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public int getItemViewType(int position) {
         if (homeBannerBeanList.size() > 0 && position == 0) {
             return 0;
+        } else if (homeTopBeanList.size() > 0&&homeBannerBeanList.size()>0) {
+            return 2;
         } else {
             return 1;
         }
@@ -235,5 +280,37 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public interface RvItemClick {
         void OnClick(View v, int position);
+    }
+
+    class ViewHolder3 extends RecyclerView.ViewHolder {
+        @BindView(R.id.home_new)
+        TextView homeNew;
+        @BindView(R.id.home_author)
+        TextView homeAuthor;
+        @BindView(R.id.home_tag)
+        TextView homeTag;
+        @BindView(R.id.home_date)
+        TextView homeDate;
+        @BindView(R.id.home_icon)
+        ImageView homeIcon;
+        @BindView(R.id.home_title)
+        TextView homeTitle;
+        @BindView(R.id.home_content)
+        TextView homeContent;
+        @BindView(R.id.home_super_chapter_name)
+        TextView homeSuperChapterName;
+        @BindView(R.id.add_symbols)
+        TextView addSymbols;
+        @BindView(R.id.home_name)
+        TextView homeName;
+        @BindView(R.id.home_collect)
+        CollectView homeCollect;
+        @BindView(R.id.new_group)
+        Group newGroup;
+
+        public ViewHolder3(@NonNull View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+        }
     }
 }
