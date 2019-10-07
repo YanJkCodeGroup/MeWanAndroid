@@ -16,9 +16,9 @@ public class HomePresenter extends BasePresenter<Contract.HomeView, AppMode> imp
 
     @Override
     public void initHomePresenter(int page) {
-        getModel().getHome(getLifecycleProvider(), new BaseCallback<List<HomeBean.DatasBean>>() {
+        getModel().getHome(getLifecycleProvider(), new BaseCallback<HomeBean>() {
             @Override
-            public void onCallSuccessful(List<HomeBean.DatasBean> value) {
+            public void onCallSuccessful(HomeBean value) {
                 super.onCallSuccessful(value);
                 if (mView != null) {
                     mView.homeBeanSucceed(value);
@@ -32,7 +32,7 @@ public class HomePresenter extends BasePresenter<Contract.HomeView, AppMode> imp
                     mView.homeFail(msg.getMessage());
                 }
             }
-        });
+        },page);
     }
 
     @Override

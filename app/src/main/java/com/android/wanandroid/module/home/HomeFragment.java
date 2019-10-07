@@ -99,8 +99,8 @@ public class HomeFragment extends BaseMvpFragment<Contract.HomePresenter> implem
 
 
     @Override
-    public void homeBeanSucceed(List<HomeBean.DatasBean> homeList) {
-        this.homeBeanDatas = homeList;
+    public void homeBeanSucceed(HomeBean homeBean) {
+        this.homeBeanDatas = homeBean.getDatas();
     }
 
     @Override

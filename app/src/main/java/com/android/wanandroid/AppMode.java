@@ -88,8 +88,8 @@ public class AppMode extends BaseModel<HttpService> implements Contract.AppModeI
     }
 
     @Override
-    public void getHome(LifecycleProvider provider, BaseCallback<List<HomeBean.DatasBean>> callback) {
-        observer(provider, getHttpService().getHomeList(), callback);
+    public void getHome(LifecycleProvider provider, BaseCallback<HomeBean> callback,int page) {
+        observer(provider, getHttpService().getHomeList(page), callback);
     }
 
     @Override

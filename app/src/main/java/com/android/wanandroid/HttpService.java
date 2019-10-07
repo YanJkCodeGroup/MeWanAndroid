@@ -47,8 +47,8 @@ public interface HttpService {
    Observable<HttpResult<ProjectItemData>> getProjectItemData(@Path("page") int page,
                                                               @Query("cid") int id);
 
-   @GET("article/list/1/json")
-   Observable<HttpResult<List<HomeBean.DatasBean>>> getHomeList();
+   @GET("article/list/{page}/json")
+   Observable<HttpResult<HomeBean>> getHomeList(@Path("page") int page);
 
    @GET("banner/json")
    Observable<HttpResult<List<HomeBannerBean>>> getHomeBannerList();
