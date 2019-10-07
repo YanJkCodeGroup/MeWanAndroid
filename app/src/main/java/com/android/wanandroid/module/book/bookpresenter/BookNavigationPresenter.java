@@ -8,7 +8,7 @@ import com.android.wanandroid.module.book.bookbeans.BookNavigationBean;
 
 import java.util.List;
 
-public class BookNavigationPresenter extends BasePresenter<Contract.bookNavigationView, AppMode> implements Contract.bookNavigationPresenter {
+public class BookNavigationPresenter extends BasePresenter<Contract.BookNavigationView, AppMode> implements Contract.BookNavigationPresenter {
    @Override
    public AppMode initModel() {
       return AppMode.getAppMode();

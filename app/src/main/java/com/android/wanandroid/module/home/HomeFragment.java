@@ -17,7 +17,7 @@ import butterknife.BindView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends BaseMvpFragment<Contract.homePresenter> implements Contract.homeView {
+public class HomeFragment extends BaseMvpFragment<Contract.HomePresenter> implements Contract.HomeView {
 
 
     @BindView(R.id.home_toolbar)
@@ -51,7 +51,7 @@ public class HomeFragment extends BaseMvpFragment<Contract.homePresenter> implem
 
 
     @Override
-    public Contract.homePresenter createPresenter() {
+    public Contract.HomePresenter createPresenter() {
         return new HomePresenter();
     }
 

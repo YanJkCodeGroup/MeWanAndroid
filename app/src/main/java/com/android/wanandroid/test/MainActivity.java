@@ -7,7 +7,7 @@ import com.android.wanandroid.Contract;
 import com.android.wanandroid.R;
 import com.android.wanandroid.test.entity.Test;
 
-public class MainActivity extends BaseMvpActivity<Contract.TestRequest.testPresenter> implements Contract.TestRequest.testView {
+public class MainActivity extends BaseMvpActivity<Contract.TestRequest.TestPresenter> implements Contract.TestRequest.TestView {
 
    @Override
    public int initLayout() {
@@ -26,7 +26,7 @@ public class MainActivity extends BaseMvpActivity<Contract.TestRequest.testPrese
    }
 
    @Override
-   public Contract.TestRequest.testPresenter createPresenter() {
+   public Contract.TestRequest.TestPresenter createPresenter() {
       return new TestMainPresenter();
    }
 

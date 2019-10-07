@@ -13,7 +13,6 @@ import com.android.mymvp.base.util.AppUtils;
 import com.android.wanandroid.Contract;
 import com.android.wanandroid.R;
 import com.android.wanandroid.module.wechat.wechatadapter.WechatListAdapter;
-import com.android.wanandroid.module.wechat.wehcatpresetner.WechatPresenter;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -24,7 +23,7 @@ import butterknife.BindView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WechatFragment extends BaseMvpFragment<Contract.wechatPresenter> implements Contract.wechatView {
+public class WechatFragment extends BaseMvpFragment<Contract.WechatPresenter> implements Contract.WechatView {
 
 
     @BindView(R.id.wechat_tabLayout)
@@ -51,7 +50,7 @@ public class WechatFragment extends BaseMvpFragment<Contract.wechatPresenter> im
     }
 
     @Override
-    public void succeed(List<DataBean> wechatList) {
+    public void succeed(List<WechatBean> wechatList) {
         list = new ArrayList<>();
         for (int i = 0; i < wechatList.size(); i++) {
 
@@ -97,8 +96,8 @@ public class WechatFragment extends BaseMvpFragment<Contract.wechatPresenter> im
     }
 
     @Override
-    public Contract.wechatPresenter createPresenter() {
-        return new WechatPresenter();
+    public Contract.WechatPresenter createPresenter() {
+        return new com.android.wanandroid.module.wechat.wehcatpresetner.WechatPresenter();
     }
 
     @Override

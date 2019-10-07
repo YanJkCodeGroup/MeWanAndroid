@@ -12,7 +12,6 @@ import com.android.wanandroid.Contract;
 import com.android.wanandroid.R;
 import com.android.wanandroid.module.book.bookadapers.BookNavRecAdaper;
 import com.android.wanandroid.module.book.bookbeans.BookNavigationBean;
-import com.android.wanandroid.module.book.bookpresenter.BookNavigationPresenter;
 
 import java.util.List;
 
@@ -23,7 +22,7 @@ import qdx.stickyheaderdecoration.NormalDecoration;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BookNavigationFragment extends BaseMvpFragment<Contract.bookNavigationPresenter> implements Contract.bookNavigationView {
+public class BookNavigationFragment extends BaseMvpFragment<Contract.BookNavigationPresenter> implements Contract.BookNavigationView {
 
     private static final String TAG = "BookNavigationFragment";
 
@@ -65,8 +64,8 @@ public class BookNavigationFragment extends BaseMvpFragment<Contract.bookNavigat
     }
 
     @Override
-    public Contract.bookNavigationPresenter createPresenter() {
-        return new BookNavigationPresenter();
+    public Contract.BookNavigationPresenter createPresenter() {
+        return new com.android.wanandroid.module.book.bookpresenter.BookNavigationPresenter();
     }
 
     @Override

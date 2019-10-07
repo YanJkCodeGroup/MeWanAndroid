@@ -4,11 +4,11 @@ import com.android.mymvp.base.BaseCallback;
 import com.android.mymvp.base.BasePresenter;
 import com.android.wanandroid.AppMode;
 import com.android.wanandroid.Contract;
-import com.android.wanandroid.module.wechat.DataBean;
+import com.android.wanandroid.module.wechat.WechatBean;
 
 import java.util.List;
 
-public class WechatPresenter extends BasePresenter<Contract.wechatView, AppMode> implements Contract.wechatPresenter {
+public class WechatPresenter extends BasePresenter<Contract.WechatView, AppMode> implements Contract.WechatPresenter {
    @Override
    public AppMode initModel() {
       return AppMode.getAppMode();
@@ -16,9 +16,9 @@ public class WechatPresenter extends BasePresenter<Contract.wechatView, AppMode>
 
    @Override
    public void initwechatPresenter() {
-      getModel().wechat(getLifecycleProvider(), new BaseCallback<List<DataBean>>() {
+      getModel().wechat(getLifecycleProvider(), new BaseCallback<List<WechatBean>>() {
          @Override
-         public void onCallSuccessful(List<DataBean> value) {
+         public void onCallSuccessful(List<WechatBean> value) {
             super.onCallSuccessful(value);
             if (mView != null)
                mView.succeed(value);

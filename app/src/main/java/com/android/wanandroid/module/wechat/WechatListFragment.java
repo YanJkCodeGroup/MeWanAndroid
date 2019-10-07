@@ -18,7 +18,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class WechatListFragment extends BaseMvpFragment<Contract.wechatlistPresenter> implements Contract.wechatlistView {
+public class WechatListFragment extends BaseMvpFragment<Contract.WechatlistPresenter> implements Contract.WechatlistView {
     @BindView(R.id.wechatlist_rec)
     RecyclerView wechatlistRec;
     private int id;
@@ -46,7 +46,7 @@ public class WechatListFragment extends BaseMvpFragment<Contract.wechatlistPrese
     }
 
     @Override
-    public Contract.wechatlistPresenter createPresenter() {
+    public Contract.WechatlistPresenter createPresenter() {
         return new WechatListPresenter();
     }
 

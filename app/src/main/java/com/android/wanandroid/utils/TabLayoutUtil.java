@@ -65,7 +65,7 @@ public class TabLayoutUtil {
    static class TabViewHolder {
       @butterknife.BindView(R.id.icon)
       ImageView ivIcon;
-      @butterknife.BindView(R.id.title)
+      @butterknife.BindView(R.id.project_title)
       TextView tvTitle;
 
       public TabViewHolder(View view) {

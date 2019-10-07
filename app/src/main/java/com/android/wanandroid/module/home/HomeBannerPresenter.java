@@ -7,10 +7,16 @@ import com.android.wanandroid.Contract;
 
 import java.util.List;
 
-public class HomeBannerPresenter extends BasePresenter<Contract.homeBannerView, AppMode> implements Contract.homeBannerPresenter {
+public class HomeBannerPresenter extends BasePresenter<Contract.HomeView, AppMode> implements Contract.HomePresenter {
     @Override
     public AppMode initModel() {
         return AppMode.getAppMode();
+    }
+
+
+    @Override
+    public void initHomePresenter() {
+
     }
 
     @Override
@@ -19,13 +25,6 @@ public class HomeBannerPresenter extends BasePresenter<Contract.homeBannerView, 
             @Override
             public void onCallSuccessful(List<HomeBannerBean> value) {
                 super.onCallSuccessful(value);
-                getView().succeed(value);
-            }
-
-            @Override
-            public <M extends Throwable> void onCallFailed(M msg) {
-                super.onCallFailed(msg);
-                getView().fail(msg.getMessage());
             }
         });
     }

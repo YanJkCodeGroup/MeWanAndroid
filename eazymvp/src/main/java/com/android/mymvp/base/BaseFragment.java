@@ -30,8 +30,9 @@ public abstract class BaseFragment extends RxFragment implements IBaseLayout, Ib
    protected Unbinder unbinder;
    protected Context mContext;
    protected Activity mActivity;
-   private LoadingView mLoadingView;
    protected View rootView;
+   private LoadingView mLoadingView;
+
    public BaseFragment() {
    }
 
@@ -171,7 +172,7 @@ public abstract class BaseFragment extends RxFragment implements IBaseLayout, Ib
    }
 
    protected void showLoading(@LoadingView.LoadingMode int mode, ViewGroup group) {
-      mLoadingView = LoadingView.injectViewGroup(group);
+      mLoadingView=LoadingView.injectViewGroup(group);
       if (mLoadingView != null)
          mLoadingView.showLoading(mode);
    }
@@ -181,7 +182,7 @@ public abstract class BaseFragment extends RxFragment implements IBaseLayout, Ib
          mLoadingView.loadingClose();
    }
 
-   protected void onError(String msg, LoadingView.RetryCallBack callBack) {
+   protected void LoadingError(String msg, LoadingView.RetryCallBack callBack) {
       if (mLoadingView != null)
          mLoadingView.onError(msg, callBack);
 

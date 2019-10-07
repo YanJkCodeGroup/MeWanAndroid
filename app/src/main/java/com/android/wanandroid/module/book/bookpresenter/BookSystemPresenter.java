@@ -8,7 +8,7 @@ import com.android.wanandroid.module.book.bookbeans.BookSystemBean;
 
 import java.util.List;
 
-public class BookSystemPresenter extends BasePresenter<Contract.bookSystemView, AppMode> implements Contract.bookSystemPresenter {
+public class BookSystemPresenter extends BasePresenter<Contract.BookSystemView, AppMode> implements Contract.BookSystemPresenter {
    @Override
    public AppMode initModel() {
       return AppMode.getAppMode();

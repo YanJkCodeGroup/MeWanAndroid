@@ -2,7 +2,6 @@ package com.android.wanandroid.module.book.booktabfragments;
 
 
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -14,7 +13,6 @@ import com.android.wanandroid.Contract;
 import com.android.wanandroid.R;
 import com.android.wanandroid.module.book.bookadapers.BookSystemAdaper;
 import com.android.wanandroid.module.book.bookbeans.BookSystemBean;
-import com.android.wanandroid.module.book.bookpresenter.BookSystemPresenter;
 
 import java.util.List;
 
@@ -24,7 +22,7 @@ import qdx.stickyheaderdecoration.NormalDecoration;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BookSystemFragment extends BaseMvpFragment<Contract.bookSystemPresenter> implements Contract.bookSystemView {
+public class BookSystemFragment extends BaseMvpFragment<Contract.BookSystemPresenter> implements Contract.BookSystemView {
 
     private static final String TAG = "BookSystemFragment";
     @BindView(R.id.fragment_booksys_rec)
@@ -65,8 +63,8 @@ public class BookSystemFragment extends BaseMvpFragment<Contract.bookSystemPrese
     }
 
     @Override
-    public Contract.bookSystemPresenter createPresenter() {
-        return new BookSystemPresenter();
+    public Contract.BookSystemPresenter createPresenter() {
+        return new com.android.wanandroid.module.book.bookpresenter.BookSystemPresenter();
     }
 
     @Override

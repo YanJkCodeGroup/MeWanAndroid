@@ -16,7 +16,7 @@ public abstract class BasePresenter<V extends IBaseView, M extends BaseModel>
         IBaseModel<M> {
 
    protected V mView;
-   protected WeakReference<M> mModel = new WeakReference<>(initModel());
+   private WeakReference<M> mModel = new WeakReference<>(initModel());
    private static ExecutorService executorService;
 
    /**

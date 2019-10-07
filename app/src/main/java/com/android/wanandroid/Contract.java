@@ -5,103 +5,139 @@ import com.android.mymvp.base.Interface.IBasePresenter;
 import com.android.mymvp.base.Interface.IBaseView;
 import com.android.mymvp.base.Interface.IBaseViewback;
 import com.android.wanandroid.module.book.bookbeans.BookNavigationBean;
-import com.android.wanandroid.module.wechat.DataBean;
-
-import com.android.wanandroid.module.wechat.WechatListBean;
 import com.android.wanandroid.module.book.bookbeans.BookSystemBean;
 import com.android.wanandroid.module.home.HomeBannerBean;
 import com.android.wanandroid.module.home.HomeBean;
+import com.android.wanandroid.module.project.entity.ProjectItemData;
+import com.android.wanandroid.module.project.entity.ProjectList;
+import com.android.wanandroid.module.wechat.WechatBean;
+import com.android.wanandroid.module.wechat.WechatListBean;
 import com.android.wanandroid.test.entity.Test;
 import com.trello.rxlifecycle2.LifecycleProvider;
 
 import java.util.List;
 
 public interface Contract {
-    interface TestRequest {
-        interface testPresenter extends IBasePresenter<testView> {
-            void getTest(int page);
-        }
+   interface TestRequest {
+      interface TestPresenter extends IBasePresenter<TestView> {
+         void getTest(int page);
+      }
 
-        interface testView extends IBaseView<testPresenter>, IBaseViewback<Test> {
-        }
-    }
+      interface TestView extends IBaseView<TestPresenter>, IBaseViewback<Test> {
+      }
+   }
 
-    interface AppModeImpl {
-        void getTest(LifecycleProvider provider, int page, BaseCallback<Test> callback);
+   interface AppModeImpl {
+      void getTest(LifecycleProvider provider, int page, BaseCallback<Test> callback);
 
-        void bookNavigation(LifecycleProvider provider, BaseCallback<List<BookNavigationBean>> callback);
+      void bookNavigation(LifecycleProvider provider,
+                          BaseCallback<List<BookNavigationBean>> callback);
 
-        void bookSystem(LifecycleProvider provider, BaseCallback<List<BookSystemBean>> callback);
+      void bookSystem(LifecycleProvider provider, BaseCallback<List<BookSystemBean>> callback);
 
-        void getHome(LifecycleProvider provider, BaseCallback<List<HomeBean>> callback);
+      void getHome(LifecycleProvider provider, BaseCallback<List<HomeBean>> callback);
 
-        void getHomeBanner(LifecycleProvider provider, BaseCallback<List<HomeBannerBean>> callback);
+      void getHomeBanner(LifecycleProvider provider, BaseCallback<List<HomeBannerBean>> callback);
 
-        //公众号
-        void wechat(LifecycleProvider provider,BaseCallback<List<DataBean>> callback);
+      //公众号
+      void wechat(LifecycleProvider provider, BaseCallback<List<WechatBean>> callback);
 
-        //公众号page页
-        void  wechatlist(LifecycleProvider provider, int id, int page, BaseCallback<WechatListBean> callback);
-    }
+      //公众号page页
+      void wechatList(LifecycleProvider provider, int id, int page,
+                      BaseCallback<WechatListBean> callback);
 
-    //导航(book Navigation)
-    public interface bookNavigationPresenter extends IBasePresenter<bookNavigationView> {
-        void initNavigationPresenter();
-    }
+      //项目的列表
+      void getProjectTabList(LifecycleProvider provider,
+                             BaseCallback<List<ProjectList>> callback);
 
-    public interface bookNavigationView extends IBaseView<bookNavigationPresenter> {
-        void succeed(List<BookNavigationBean> beanList);
+      //项目列表的内容
+      void getProjectItemDate(LifecycleProvider provider, int page, int id,
+                              BaseCallback<ProjectItemData> callback);
 
-        void fail(String error);
-    }
+   }
 
-    //体系(book system)
-    public interface bookSystemPresenter extends IBasePresenter<bookSystemView> {
-        void initSystemPresenter();
-    }
+   //导航(book Navigation)
+   interface BookNavigationPresenter extends IBasePresenter<BookNavigationView> {
+      void initNavigationPresenter();
+   }
 
-    public interface bookSystemView extends IBaseView<bookSystemPresenter> {
-        void succeed(List<BookSystemBean> sysList);
+   interface BookNavigationView extends IBaseView<BookNavigationPresenter> {
+      void succeed(List<BookNavigationBean> beanList);
 
-        void fail(String error);
-    }
+      void fail(String error);
+   }
 
+   //体系(book system)
+   interface BookSystemPresenter extends IBasePresenter<BookSystemView> {
+      void initSystemPresenter();
+   }
 
-    //公众号
-    public interface  wechatPresenter extends IBasePresenter<wechatView>{
-        void initwechatPresenter();
-    }
+   interface BookSystemView extends IBaseView<BookSystemPresenter> {
+      void succeed(List<BookSystemBean> sysList);
 
-    public interface wechatView extends  IBaseView<wechatPresenter>{
-        void  succeed(List<DataBean> wechatList);
-        void  fail(String error);
-    }
-
-    //公众号page页
-    public interface  wechatlistPresenter extends IBasePresenter<wechatlistView>{
-        void initwechatlistPresenter(int id,int page);
-    }
-
-    public interface wechatlistView extends  IBaseView<wechatlistPresenter>{
-        void  succeed(WechatListBean wechatList);
-        void  fail(String error);
-    }
-    //首页(home)
-    public interface homePresenter extends IBasePresenter<homeView> {
-        void initHomePresenter();
-
-        void initHomeBannerPresenter();
-    }
-
-    public interface homeView extends IBaseView<homePresenter> {
-        void homeBeanSucceed(List<HomeBean> homeList);
-
-        void homeFail(String error);
+      void fail(String error);
+   }
 
 
-        void homeBannerSucceed(List<HomeBannerBean> homeBannerList);
+   //公众号
+   interface WechatPresenter extends IBasePresenter<WechatView> {
+      void initwechatPresenter();
+   }
 
-        void homeBannerFail(String error);
-    }
+   interface WechatView extends IBaseView<WechatPresenter> {
+      void succeed(List<WechatBean> wechatList);
+
+      void fail(String error);
+   }
+
+   //公众号page页
+   interface WechatlistPresenter extends IBasePresenter<WechatlistView> {
+      void initwechatlistPresenter(int id, int page);
+   }
+
+   interface WechatlistView extends IBaseView<WechatlistPresenter> {
+      void succeed(WechatListBean wechatList);
+
+      void fail(String error);
+   }
+
+   //首页(home)
+   interface HomePresenter extends IBasePresenter<HomeView> {
+      void initHomePresenter();
+
+      void initHomeBannerPresenter();
+   }
+
+   interface HomeView extends IBaseView<HomePresenter> {
+      void homeBeanSucceed(List<HomeBean> homeList);
+
+      void homeFail(String error);
+
+
+      void homeBannerSucceed(List<HomeBannerBean> homeBannerList);
+
+      void homeBannerFail(String error);
+   }
+
+
+   interface ProjectContract {
+      interface ProjectPresenter extends IBasePresenter<ProjectView> {
+         void getProjectTabList();
+      }
+
+      interface ProjectView extends IBaseView<ProjectPresenter>,
+              IBaseViewback<List<ProjectList>> {
+      }
+
+      interface ProjectItemPresenter extends IBasePresenter<ProjectItemView> {
+         void getProjectItemData(int page, int id);
+      }
+
+      interface ProjectItemView extends IBaseView<ProjectItemPresenter>,
+              IBaseViewback<ProjectItemData> {
+      }
+
+   }
+
 
 }

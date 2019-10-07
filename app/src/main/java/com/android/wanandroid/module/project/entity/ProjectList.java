@@ -1,17 +1,18 @@
-package com.android.wanandroid.module.wechat;
+package com.android.wanandroid.module.project.entity;
 
 import java.util.List;
 
-public class WechatBean {
+public class ProjectList {
+
    /**
     * children : []
     * courseId : 13
-    * id : 408
-    * name : 鸿洋
-    * order : 190000
-    * parentChapterId : 407
+    * id : 294
+    * name : 完整项目
+    * order : 145000
+    * parentChapterId : 293
     * userControlSetTop : false
-    * visible : 1
+    * visible : 0
     */
 
    private int courseId;
@@ -21,7 +22,7 @@ public class WechatBean {
    private int parentChapterId;
    private boolean userControlSetTop;
    private int visible;
-   private List<?> children;
+   private List<String> children;
 
    public int getCourseId() {
       return courseId;
@@ -79,11 +80,12 @@ public class WechatBean {
       this.visible = visible;
    }
 
-   public List<?> getChildren() {
+   public List<String> getChildren() {
       return children;
    }
 
-   public void setChildren(List<?> children) {
+   public void setChildren(List<String> children) {
       this.children = children;
    }
+
 }

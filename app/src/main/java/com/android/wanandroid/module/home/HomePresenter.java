@@ -7,7 +7,7 @@ import com.android.wanandroid.Contract;
 
 import java.util.List;
 
-public class HomePresenter extends BasePresenter<Contract.homeView, AppMode> implements Contract.homePresenter{
+public class HomePresenter extends BasePresenter<Contract.HomeView, AppMode> implements Contract.HomePresenter {
     @Override
     public AppMode initModel() {
         return AppMode.getAppMode();

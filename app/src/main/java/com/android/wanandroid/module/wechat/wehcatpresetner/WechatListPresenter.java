@@ -6,7 +6,7 @@ import com.android.wanandroid.AppMode;
 import com.android.wanandroid.Contract;
 import com.android.wanandroid.module.wechat.WechatListBean;
 
-public class WechatListPresenter extends BasePresenter<Contract.wechatlistView, AppMode> implements Contract.wechatlistPresenter {
+public class WechatListPresenter extends BasePresenter<Contract.WechatlistView, AppMode> implements Contract.WechatlistPresenter {
 
    @Override
    public AppMode initModel() {
@@ -16,7 +16,7 @@ public class WechatListPresenter extends BasePresenter<Contract.wechatlistView, 
 
    @Override
    public void initwechatlistPresenter(int id, int page) {
-      getModel().wechatlist(getLifecycleProvider(), id, page, new BaseCallback<WechatListBean>() {
+      getModel().wechatList(getLifecycleProvider(), id, page, new BaseCallback<WechatListBean>() {
          @Override
          public void onCallSuccessful(WechatListBean value) {
             if (mView != null)

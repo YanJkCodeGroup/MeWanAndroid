@@ -6,7 +6,7 @@ import com.android.wanandroid.AppMode;
 import com.android.wanandroid.Contract;
 import com.android.wanandroid.test.entity.Test;
 
-public class TestMainPresenter extends BasePresenter<Contract.TestRequest.testView, AppMode> implements Contract.TestRequest.testPresenter {
+public class TestMainPresenter extends BasePresenter<Contract.TestRequest.TestView, AppMode> implements Contract.TestRequest.TestPresenter {
    @Override
    public AppMode initModel() {
       return AppMode.getAppMode();
