@@ -1,6 +1,7 @@
 package com.android.wanandroid.module.home;
 
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ import com.android.mymvp.base.BaseMvpFragment;
 import com.android.mymvp.base.util.AppUtils;
 import com.android.wanandroid.Contract;
 import com.android.wanandroid.R;
+import com.android.wanandroid.module.book.bookactivity.BookNavigationActivity;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
@@ -98,7 +100,9 @@ public class HomeFragment extends BaseMvpFragment<Contract.HomePresenter> implem
         homeAdapter.setRvItemClick(new HomeAdapter.RvItemClick() {
             @Override
             public void OnClick(View v, int position) {
-
+                Intent intent = new Intent(mContext, BookNavigationActivity.class);
+                intent.putExtra("home_link",homeBeanDatas.get(position).getProjectLink());
+                startActivity(intent);
             }
         });
     }
