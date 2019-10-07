@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.wanandroid">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.android.wanandroid"
+    tools:ignore="GoogleAppIndexingWarning">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,8 +16,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".module.book.bookactivity.BookSystemActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity
             android:name=".module.book.bookactivity.BookNavigationActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

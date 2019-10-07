@@ -6,6 +6,7 @@ import com.android.mymvp.base.Interface.IBaseView;
 import com.android.mymvp.base.Interface.IBaseViewback;
 import com.android.wanandroid.module.book.bookbeans.BookNavigationBean;
 import com.android.wanandroid.module.book.bookbeans.BookSystemBean;
+import com.android.wanandroid.module.book.bookbeans.SystemDetailsBean;
 import com.android.wanandroid.module.home.HomeBannerBean;
 import com.android.wanandroid.module.home.HomeBean;
 import com.android.wanandroid.module.project.entity.ProjectItemData;
@@ -53,6 +54,10 @@ public interface Contract {
       //项目列表的内容
       void getProjectItemDate(LifecycleProvider provider, int page, int id,
                               BaseCallback<ProjectItemData> callback);
+
+      //系统详情
+      void systemDetails(LifecycleProvider provider, int page, int id, BaseCallback<SystemDetailsBean> callback);
+
 
    }
 
@@ -138,6 +143,16 @@ public interface Contract {
       }
 
    }
+
+    interface SystemDetailsPresenter extends IBasePresenter<SystemDetailsView> {
+        void initSystemDetailsPresenter(int page, int id);
+    }
+
+    interface SystemDetailsView extends IBaseView<SystemDetailsPresenter> {
+        void succeed(SystemDetailsBean systemDetails);
+
+        void fail(String error);
+    }
 
 
 }

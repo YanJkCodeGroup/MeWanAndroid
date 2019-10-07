@@ -2,6 +2,7 @@ package com.android.wanandroid;
 
 import com.android.wanandroid.module.book.bookbeans.BookNavigationBean;
 import com.android.wanandroid.module.book.bookbeans.BookSystemBean;
+import com.android.wanandroid.module.book.bookbeans.SystemDetailsBean;
 import com.android.wanandroid.module.home.HomeBannerBean;
 import com.android.wanandroid.module.home.HomeBean;
 import com.android.wanandroid.module.project.entity.ProjectItemData;
@@ -53,4 +54,8 @@ public interface HttpService {
    @GET("banner/json")
    Observable<HttpResult<List<HomeBannerBean>>> getHomeBannerList();
 
+
+    //系统详情
+    @GET("article/list/{page}/json?")
+    Observable<HttpResult<SystemDetailsBean>> getSystemDetails(@Path("page") int page, @Query("cid") int id);
 }

@@ -49,13 +49,9 @@ public class BookSystemAdaper extends RecyclerView.Adapter<BookSystemAdaper.View
                 public void onClick(View v) {
                     //Toast.makeText(context, "你点击了" + children.get(finalJ).getName(), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(context, BookSystemActivity.class);
-                    intent.putParcelableArrayListExtra("List", (ArrayList<? extends Parcelable>) sysList);
+                    intent.putParcelableArrayListExtra("List", (ArrayList<? extends Parcelable>)children);
                     String name = sysList.get(position).getName();
                     intent.putExtra("name", name);
-                    int size = sysList.get(position).getChildren().size();
-                    intent.putExtra("size", size);
-                    int id = sysList.get(position).getId();
-                    intent.putExtra("id",id);
                     context.startActivity(intent);
                 }
             });
