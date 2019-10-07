@@ -59,13 +59,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wechatlist_title" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+    <com.android.wanandroid.widget.CollectView
+        android:id="@+id/wechatlist_collect"
+        android:layout_width="36dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="4dp"
         app:layout_constraintBottom_toBottomOf="@+id/wechatlist_superChapterName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/wechatlist_superChapterName"
-        app:srcCompat="@drawable/ic_favorite" />
+        app:layout_constraintTop_toTopOf="@+id/wechatlist_superChapterName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
