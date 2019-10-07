@@ -3,6 +3,7 @@ package com.android.wanandroid;
 import com.android.mymvp.base.BaseCallback;
 import com.android.mymvp.base.BaseModel;
 import com.android.wanandroid.module.book.bookbeans.BookNavigationBean;
+import com.android.wanandroid.module.book.bookbeans.BookSystemBean;
 import com.android.wanandroid.module.wechat.DataBean;
 
 import com.android.wanandroid.module.wechat.WechatListBean;
@@ -61,10 +62,10 @@ public class AppMode extends BaseModel<HttpService> implements Contract.AppModeI
    public void wechatlist(LifecycleProvider provider, int id,int page, BaseCallback<WechatListBean> callback) {
       observer(provider,getHttpService().getWechatLists(id,page),callback);
    }
-    @Override
-    public void bookNavigation(LifecycleProvider provider, BaseCallback<List<BookNavigationBean>> callback) {
-        observer(provider, getHttpService().getBookNavigationList(), callback);
-    }
+//    @Override
+//    public void bookNavigation(LifecycleProvider provider, BaseCallback<List<BookNavigationBean>> callback) {
+//        observer(provider, getHttpService().getBookNavigationList(), callback);
+//    }
 
     @Override
     public void bookSystem(LifecycleProvider provider, BaseCallback<List<BookSystemBean>> callback) {

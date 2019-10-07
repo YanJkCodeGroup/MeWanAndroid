@@ -3,6 +3,8 @@ package com.android.wanandroid.module.wechat;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -54,7 +56,9 @@ public class WechatListFragment extends BaseMvpFragment<Contract.wechatlistPrese
         id = Integer.parseInt(getArguments().getString("id"));
         mPresenter.initwechatlistPresenter(id,page);
         wechatlistRec.setLayoutManager(new LinearLayoutManager(getActivity()));
-
+        DividerItemDecoration divider = new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL);
+        divider.setDrawable(ContextCompat.getDrawable(getActivity(),R.drawable.wechat_shape));
+        wechatlistRec.addItemDecoration(divider);
 
     }
 }
