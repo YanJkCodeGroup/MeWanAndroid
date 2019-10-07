@@ -1,6 +1,7 @@
 package com.android.wanandroid.module.home;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.Group;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.wanandroid.R;
+import com.android.wanandroid.widget.CollectView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
@@ -49,7 +54,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_homefragment_banner_layout, parent, false);
             return new ViewHolder1(view);
         } else {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_homefragment_art_layout, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_item_layout, parent, false);
             return new ViewHolder2(view);
         }
     }
@@ -78,19 +83,78 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 position = position - 1;
             }
             ViewHolder2 holder2 = (ViewHolder2) holder;
-            holder2.mHomeArtAuthor.setText(homeBeanList.get(position).getAuthor());
-            holder2.mHomeArtChapterName.setText(homeBeanList.get(position).getChapterName());
-            holder2.mHomeArtNiceDate.setText(homeBeanList.get(position).getNiceDate());
-            holder2.mHomeArtSuperChapterName.setText(homeBeanList.get(position).getSuperChapterName() + "· ");
-            List<HomeBean.DatasBean.TagsBean> tags = homeBeanList.get(position).getTags();
-            if (tags.size() != 0) {
-                holder2.mHomeArtTagsName.setText(tags.get(0).getName());
+            HomeBean.DatasBean datasBean = homeBeanList.get(position);
+            holder2.homeAuthor.setText(datasBean.getAuthor());
+            holder2.homeDate.setText(datasBean.getNiceDate());
+            holder2.homeSuperChapterName.setText(datasBean.getSuperChapterName());
+            holder2.homeName.setText(datasBean.getChapterName());
+            holder2.homeTitle.setText(datasBean.getTitle());
+
+            if (!TextUtils.isEmpty(datasBean.getDesc())) {
+                holder2.homeContent.setText(datasBean.getDesc());
+                holder2.homeContent.setVisibility(View.VISIBLE);
+            } else {
+                holder2.homeContent.setVisibility(View.GONE);
             }
-            holder2.mHomeArtTitle.setText(homeBeanList.get(position).getTitle());
-            String envelopePic = homeBeanList.get(position).getEnvelopePic();
-            Glide.with(holder.itemView.getContext()).load(envelopePic).into(holder2.mHomeArtEnvelopePic);
+            //判断是否显示下方tag
+            if (TextUtils.isEmpty(datasBean.getSuperChapterName()) || TextUtils.isEmpty(datasBean.getChapterName())) {
+                holder2.addSymbols.setVisibility(View.VISIBLE);
+            } else {
+                holder2.addSymbols.setVisibility(View.GONE);
+            }
+            //判断是否显示作者前面的标题
+            if (datasBean.isFresh()) {
+                holder2.newGroup.setVisibility(View.VISIBLE);
+            } else {
+                holder2.newGroup.setVisibility(View.GONE);
+            }
+            //判断是否加载图片
+            if (!TextUtils.isEmpty(datasBean.getEnvelopePic())) {
+                RequestOptions requestOptions = new RequestOptions();
+                //错误占位图
+                requestOptions.error(R.drawable.image_holder);
+                //默认占位图
+                requestOptions.placeholder(R.drawable.image_holder);
+                //全部缓存
+                requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
+
+                Glide.with(holder2.homeIcon.getContext())
+                        .applyDefaultRequestOptions(requestOptions)
+                        .load(datasBean.getEnvelopePic())
+                        .into(holder2.homeIcon);
+                holder2.homeIcon.setVisibility(View.VISIBLE);
+            } else {
+                holder2.homeIcon.setVisibility(View.GONE);
+            }
+
+            //是否被收藏
+            if (datasBean.isCollect()) {
+                holder2.homeCollect.setChecked(true);
+            } else {
+                holder2.homeCollect.setChecked(false);
+            }
+            //设置tag
+            if (datasBean.getTags() != null && datasBean.getTags().size() > 0) {
+                holder2.homeTag.setText(datasBean.getTags().get(0).getName());
+                holder2.homeTag.setVisibility(View.VISIBLE);
+            } else {
+                holder2.homeTag.setVisibility(View.GONE);
+            }
+            holder2.homeAuthor.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //todo 作者点击事件
+                }
+            });
+            holder2.homeCollect.setOnClickListener(new CollectView.OnClickListener() {
+                @Override
+                public void onClick(CollectView v) {
+                    datasBean.setCollect(!datasBean.isCollect());
+                    //todo 收藏点击事件
+                }
+            });
             int finalPosition = position;
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
+            holder2.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     rvItemClick.OnClick(v, finalPosition);
@@ -130,22 +194,30 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     class ViewHolder2 extends RecyclerView.ViewHolder {
-        @BindView(R.id.home_art_author)
-        TextView mHomeArtAuthor;
-        @BindView(R.id.home_art_tags_name)
-        TextView mHomeArtTagsName;
-        @BindView(R.id.home_art_niceDate)
-        TextView mHomeArtNiceDate;
-        @BindView(R.id.home_art_envelopePic)
-        ImageView mHomeArtEnvelopePic;
-        @BindView(R.id.home_art_title)
-        TextView mHomeArtTitle;
-        @BindView(R.id.home_art_superChapterName)
-        TextView mHomeArtSuperChapterName;
-        @BindView(R.id.home_art_chapterName)
-        TextView mHomeArtChapterName;
-        @BindView(R.id.home_art_like)
-        ImageView mHomeArtLike;
+        @BindView(R.id.home_new)
+        TextView homeNew;
+        @BindView(R.id.home_author)
+        TextView homeAuthor;
+        @BindView(R.id.home_tag)
+        TextView homeTag;
+        @BindView(R.id.home_date)
+        TextView homeDate;
+        @BindView(R.id.home_icon)
+        ImageView homeIcon;
+        @BindView(R.id.home_title)
+        TextView homeTitle;
+        @BindView(R.id.home_content)
+        TextView homeContent;
+        @BindView(R.id.home_super_chapter_name)
+        TextView homeSuperChapterName;
+        @BindView(R.id.add_symbols)
+        TextView addSymbols;
+        @BindView(R.id.home_name)
+        TextView homeName;
+        @BindView(R.id.home_collect)
+        CollectView homeCollect;
+        @BindView(R.id.new_group)
+        Group newGroup;
 
         public ViewHolder2(@NonNull View itemView) {
             super(itemView);

@@ -7,7 +7,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -58,6 +60,10 @@ public class HomeFragment extends BaseMvpFragment<Contract.HomePresenter> implem
         homeAdapter = new HomeAdapter();
         homeRv.setLayoutManager(new LinearLayoutManager(mContext));
         homeRv.setAdapter(homeAdapter);
+        DividerItemDecoration divider = new DividerItemDecoration(mContext,
+                DividerItemDecoration.VERTICAL);
+        divider.setDrawable(ContextCompat.getDrawable(mContext, R.drawable.project_shape));
+        homeRv.addItemDecoration(divider);
     }
 
     @Override
@@ -101,6 +107,9 @@ public class HomeFragment extends BaseMvpFragment<Contract.HomePresenter> implem
     @Override
     public void homeBeanSucceed(HomeBean homeBean) {
         this.homeBeanDatas = homeBean.getDatas();
+        if (homeBannerList != null && homeBannerList.size() > 0) {
+            initReclcerData();
+        }
     }
 
     @Override
@@ -112,8 +121,10 @@ public class HomeFragment extends BaseMvpFragment<Contract.HomePresenter> implem
     @Override
     public void homeBannerSucceed(List<HomeBannerBean> homeBannerList) {
         this.homeBannerList = homeBannerList;
-        if (homeBeanDatas != null && homeBeanDatas.size() > 0)
+        if (homeBeanDatas != null && homeBeanDatas.size() > 0) {
+
             initReclcerData();
+        }
     }
 
     @Override
