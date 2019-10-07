@@ -55,6 +55,10 @@ public interface Contract {
       void getProjectItemDate(LifecycleProvider provider, int page, int id,
                               BaseCallback<ProjectItemData> callback);
 
+      //系统详情
+      void systemDetails(LifecycleProvider provider, int page, int id, BaseCallback<SystemDetailsBean> callback);
+
+
    }
 
    //导航(book Navigation)
