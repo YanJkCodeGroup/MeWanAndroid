@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".module.book.bookactivity.BookSystemActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity
             android:name=".module.book.bookactivity.BookNavigationActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
