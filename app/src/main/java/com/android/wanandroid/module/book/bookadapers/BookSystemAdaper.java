@@ -1,6 +1,8 @@
 package com.android.wanandroid.module.book.bookadapers;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.wanandroid.R;
+import com.android.wanandroid.module.book.bookactivity.BookSystemActivity;
 import com.android.wanandroid.module.book.bookbeans.BookSystemBean;
 import com.android.wanandroid.module.book.bookui.FlowLayout;
 
@@ -44,7 +47,16 @@ public class BookSystemAdaper extends RecyclerView.Adapter<BookSystemAdaper.View
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "你点击了" + children.get(finalJ).getName(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, "你点击了" + children.get(finalJ).getName(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, BookSystemActivity.class);
+                    intent.putParcelableArrayListExtra("List", (ArrayList<? extends Parcelable>) sysList);
+                    String name = sysList.get(position).getName();
+                    intent.putExtra("name", name);
+                    int size = sysList.get(position).getChildren().size();
+                    intent.putExtra("size", size);
+                    int id = sysList.get(position).getId();
+                    intent.putExtra("id",id);
+                    context.startActivity(intent);
                 }
             });
             holder.fl.addView(view);
