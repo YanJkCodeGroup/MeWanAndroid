@@ -23,13 +23,16 @@
         <activity
             android:name=".module.activity.HomeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.welcome.WelcomeActivity"
+            android:theme="@style/NoAppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.welcome.WelcomeActivity" />
         <activity android:name=".test.MainActivity" />
     </application>
 
