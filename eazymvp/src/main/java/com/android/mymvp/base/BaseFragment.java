@@ -89,22 +89,22 @@ public abstract class BaseFragment extends RxFragment implements IBaseLayout, Ib
    }
 
    @Override
-   public final void toActivity(Class<?> tClass, Intent intent) {
-      startActivity(createIntent(tClass, intent));
+   public final void toActivity(Class<?> toClass, Intent intent) {
+      startActivity(createIntent(toClass, intent));
    }
 
    @Override
-   public final void toActivityForResult(Class<?> tClass, int resuleCode, Intent intent) {
-      startActivityForResult(createIntent(tClass, intent), resuleCode);
+   public final void toActivityForResult(Class<?> toClass, int resuleCode, Intent intent) {
+      startActivityForResult(createIntent(toClass, intent), resuleCode);
    }
 
-   private Intent createIntent(Class<?> tClass, Intent intent) {
+   private Intent createIntent(Class<?> toClass, Intent intent) {
       Intent start;
       if (intent != null) {
-         intent.setClass(mContext, tClass);
+         intent.setClass(mContext, toClass);
          start = intent;
       } else {
-         start = new Intent(mContext, tClass);
+         start = new Intent(mContext, toClass);
       }
       return start;
    }

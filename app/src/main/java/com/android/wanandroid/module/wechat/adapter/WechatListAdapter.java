@@ -1,4 +1,4 @@
-package com.android.wanandroid.module.wechat.wechatadapter;
+package com.android.wanandroid.module.wechat.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

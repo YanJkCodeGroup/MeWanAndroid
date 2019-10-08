@@ -18,10 +18,10 @@
             android:name=".module.book.bookactivity.BookSystemActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity
-            android:name=".module.book.bookactivity.BookNavigationActivity"
+            android:name=".module.activity.DetailsWebActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".module.home.HomeActivity"
+            android:name=".module.activity.HomeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

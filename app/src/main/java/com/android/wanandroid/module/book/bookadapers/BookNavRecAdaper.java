@@ -6,13 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.wanandroid.R;
-import com.android.wanandroid.module.book.bookactivity.BookNavigationActivity;
+import com.android.wanandroid.module.activity.DetailsWebActivity;
 import com.android.wanandroid.module.book.bookbeans.BookNavigationBean;
 import com.android.wanandroid.module.book.bookui.FlowLayout;
 
@@ -48,9 +47,10 @@ public class BookNavRecAdaper extends RecyclerView.Adapter<BookNavRecAdaper.View
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, BookNavigationActivity.class);
+                    Intent intent = new Intent(context, DetailsWebActivity.class);
                     String link = articles.get(finalJ1).getLink();
                     intent.putExtra("link", link);
+                    intent.putExtra("title", articles.get(finalJ1).getTitle());
                     context.startActivity(intent);
                 }
             });

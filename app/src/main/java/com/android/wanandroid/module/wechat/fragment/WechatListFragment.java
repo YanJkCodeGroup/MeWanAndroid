@@ -1,4 +1,4 @@
-package com.android.wanandroid.module.wechat;
+package com.android.wanandroid.module.wechat.fragment;
 
 import android.content.Intent;
 import android.util.Log;
@@ -16,14 +16,13 @@ import com.android.mymvp.base.BaseMvpFragment;
 import com.android.utils.log.LogUtil;
 import com.android.wanandroid.Contract;
 import com.android.wanandroid.R;
-import com.android.wanandroid.module.book.bookactivity.BookNavigationActivity;
-import com.android.wanandroid.module.wechat.wechatadapter.WechatListsAdapter;
-import com.android.wanandroid.module.wechat.wehcatpresetner.WechatListPresenter;
+import com.android.wanandroid.module.activity.DetailsWebActivity;
+import com.android.wanandroid.module.wechat.adapter.WechatListsAdapter;
+import com.android.wanandroid.module.wechat.entity.WechatListBean;
+import com.android.wanandroid.module.wechat.presetner.WechatListPresenter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
-
-import java.util.List;
 
 import butterknife.BindView;
 
@@ -55,8 +54,9 @@ public class WechatListFragment extends BaseMvpFragment<Contract.WechatlistPrese
         wechatListsAdapter.setOnClickListener(new WechatListsAdapter.OnClickListener() {
             @Override
             public void onClick(View v, int position) {
-                Intent intent = new Intent(mActivity, BookNavigationActivity.class);
+                Intent intent = new Intent(mActivity, DetailsWebActivity.class);
                 intent.putExtra("link",wechatList.getDatas().get(position).getLink());
+                intent.putExtra("title",wechatList.getDatas().get(position).getTitle());
                 startActivity(intent);
             }
         });
