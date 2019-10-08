@@ -168,7 +168,9 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
          public void onClick(CollectView v) {
             datasBean.setCollect(!datasBean.isCollect());
             //todo 收藏点击事件
-            mOnItemCollectClickListener.onItemCollectClick(v);
+            if (mOnItemCollectClickListener != null) {
+               mOnItemCollectClickListener.onItemCollectClick(v);
+            }
          }
       });
       holder.itemView.setOnClickListener(new View.OnClickListener() {
