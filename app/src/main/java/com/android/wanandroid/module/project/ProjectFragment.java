@@ -77,6 +77,7 @@ public class ProjectFragment extends BaseMvpFragment<ProjectPresenter> implement
 
       if (isVisibleToUser) {
          unbinder = ButterKnife.bind(this, rootView);
+         initMvp();
          initData();
       }
    }

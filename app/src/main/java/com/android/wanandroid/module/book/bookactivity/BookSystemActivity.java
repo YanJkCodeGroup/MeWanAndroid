@@ -1,4 +1,5 @@
 package com.android.wanandroid.module.book.bookactivity;
+
 import android.content.Intent;
 import android.widget.TextView;
 
@@ -8,6 +9,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.android.mymvp.base.BaseActivity;
+import com.android.mymvp.base.util.AppUtils;
+import com.android.utils.system.ImmersionModeUtil;
 import com.android.wanandroid.R;
 import com.android.wanandroid.module.book.bookadapers.SystemTabAndVpAdaper;
 import com.android.wanandroid.module.book.bookbeans.BookSystemBean;
@@ -33,7 +36,11 @@ public class BookSystemActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        super.initView();
+        ImmersionModeUtil.setStatusBar(this, false);
+        activityBooksysToolbar.setPadding(activityBooksysToolbar.getPaddingLeft(),
+                AppUtils.getStateBar2(getContext()),
+                activityBooksysToolbar.getPaddingRight(),
+                activityBooksysToolbar.getPaddingBottom());
         Intent intent = getIntent();
         list = intent.getParcelableArrayListExtra("List");
         String name = intent.getStringExtra("name");
