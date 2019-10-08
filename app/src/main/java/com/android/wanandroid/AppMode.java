@@ -8,6 +8,7 @@ import com.android.wanandroid.module.book.bookbeans.SystemDetailsBean;
 import com.android.wanandroid.module.home.HomeBannerBean;
 import com.android.wanandroid.module.home.HomeBean;
 import com.android.wanandroid.module.home.HomeTopBean;
+import com.android.wanandroid.module.login.LoginData;
 import com.android.wanandroid.module.project.entity.ProjectItemData;
 import com.android.wanandroid.module.project.entity.ProjectList;
 import com.android.wanandroid.module.wechat.entity.WechatBean;
@@ -87,6 +88,12 @@ public class AppMode extends BaseModel<HttpService> implements Contract.AppModeI
     @Override
     public void systemDetails(LifecycleProvider provider, int page, int id, BaseCallback<SystemDetailsBean> callback) {
         observer(provider, getHttpService().getSystemDetails(page, id), callback);
+    }
+
+    //登录
+    @Override
+    public void login(LifecycleProvider provider, String username, String password, BaseCallback<LoginData> callback) {
+        observer(provider,getHttpService().login(username,password),callback);
     }
 
 

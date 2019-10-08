@@ -6,6 +6,7 @@ import com.android.wanandroid.module.book.bookbeans.SystemDetailsBean;
 import com.android.wanandroid.module.home.HomeBannerBean;
 import com.android.wanandroid.module.home.HomeBean;
 import com.android.wanandroid.module.home.HomeTopBean;
+import com.android.wanandroid.module.login.LoginData;
 import com.android.wanandroid.module.project.entity.ProjectItemData;
 import com.android.wanandroid.module.project.entity.ProjectList;
 import com.android.wanandroid.module.wechat.entity.WechatBean;
@@ -16,7 +17,9 @@ import com.android.wanandroid.test.entity.Test;
 import java.util.List;
 
 import io.reactivex.Observable;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -63,4 +66,15 @@ public interface HttpService {
     //系统详情
     @GET("article/list/{page}/json?")
     Observable<HttpResult<SystemDetailsBean>> getSystemDetails(@Path("page") int page, @Query("cid") int id);
+
+   /**
+    * 登录
+    * https://www.wanandroid.com/user/login
+    *
+    * 方法：POST
+    * 参数：
+    * 	username，password
+    */
+   @POST("user/login")
+   Observable<HttpResult<LoginData>> login(@Query("username") String username,@Query("password") String password);
 }

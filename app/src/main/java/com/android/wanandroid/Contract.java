@@ -10,6 +10,7 @@ import com.android.wanandroid.module.book.bookbeans.SystemDetailsBean;
 import com.android.wanandroid.module.home.HomeBannerBean;
 import com.android.wanandroid.module.home.HomeBean;
 import com.android.wanandroid.module.home.HomeTopBean;
+import com.android.wanandroid.module.login.LoginData;
 import com.android.wanandroid.module.project.entity.ProjectItemData;
 import com.android.wanandroid.module.project.entity.ProjectList;
 import com.android.wanandroid.module.wechat.entity.WechatBean;
@@ -64,7 +65,8 @@ public interface Contract {
         //系统详情
         void systemDetails(LifecycleProvider provider, int page, int id, BaseCallback<SystemDetailsBean> callback);
 
-
+        //登录
+        void login(LifecycleProvider provider,String username,String password,BaseCallback<LoginData> callback);
     }
 
     //导航(book Navigation)
@@ -168,6 +170,15 @@ public interface Contract {
         void succeed(SystemDetailsBean systemDetails);
 
         void fail(String error);
+    }
+
+    //login
+    interface  ILoginPresenter extends IBasePresenter<ILoginView>{
+        void login(String username,String password);
+    }
+    interface ILoginView extends IBaseView<ILoginPresenter>{
+        void onSuccess(LoginData data);
+        void onFail(String msg);
     }
 
 

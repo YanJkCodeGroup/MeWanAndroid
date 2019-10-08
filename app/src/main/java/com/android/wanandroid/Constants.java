@@ -9,4 +9,6 @@ public interface Constants {
            "(KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36";
 
 
+    boolean IS_LOGIN = false;
+    String USER_INFO = "user_info";//用户信息key
 }
