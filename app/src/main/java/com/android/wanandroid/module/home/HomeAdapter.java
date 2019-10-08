@@ -1,6 +1,7 @@
 package com.android.wanandroid.module.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.constraintlayout.widget.Group;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.wanandroid.R;
+import com.android.wanandroid.module.activity.DetailsWebActivity;
 import com.android.wanandroid.widget.CollectView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -78,7 +80,11 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     .setOnBannerListener(new OnBannerListener() {
                         @Override
                         public void OnBannerClick(int position) {
-
+                            Context context = holder.itemView.getContext();
+                            Intent intent = new Intent(context, DetailsWebActivity.class);
+                            intent.putExtra("link", homeBannerBeanList.get(position).getUrl());
+                            intent.putExtra("title", homeBannerBeanList.get(position).getTitle());
+                            context.startActivity(intent);
                         }
                     })
                     .start();
