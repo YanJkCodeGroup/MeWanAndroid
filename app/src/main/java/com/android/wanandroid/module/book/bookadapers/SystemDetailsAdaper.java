@@ -1,6 +1,7 @@
 package com.android.wanandroid.module.book.bookadapers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.constraintlayout.widget.Group;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.wanandroid.R;
+import com.android.wanandroid.module.book.bookactivity.BookNavigationActivity;
 import com.android.wanandroid.module.book.bookbeans.SystemDetailsBean;
 import com.android.wanandroid.widget.CollectView;
 import com.bumptech.glide.Glide;
@@ -26,7 +28,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SystemDetailsAdaper extends RecyclerView.Adapter<SystemDetailsAdaper.ViewHolder> {
-    Context context;
     List<SystemDetailsBean.DatasBean> systemDetailsList = new ArrayList<>();
 
 
@@ -39,12 +40,25 @@ public class SystemDetailsAdaper extends RecyclerView.Adapter<SystemDetailsAdape
 
     @Override
     public void onBindViewHolder(@NonNull SystemDetailsAdaper.ViewHolder holder, int position) {
+        Context context = holder.itemView.getContext();
         SystemDetailsBean.DatasBean datasBean = systemDetailsList.get(position);
         holder.bookAuthor.setText(datasBean.getAuthor());
         holder.bookDate.setText(datasBean.getNiceDate());
         holder.bookSuperChapterName.setText(datasBean.getSuperChapterName());
         holder.bookName.setText(datasBean.getChapterName());
         holder.bookTitle.setText(datasBean.getTitle());
+
+        //条目点击事件
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, BookNavigationActivity.class);
+                String link = systemDetailsList.get(position).getLink();
+                intent.putExtra("link", link);
+                context.startActivity(intent);
+            }
+        });
+
 
         if (!TextUtils.isEmpty(datasBean.getDesc())) {
             holder.bookContent.setText(datasBean.getDesc());
