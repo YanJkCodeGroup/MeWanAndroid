@@ -166,7 +166,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 holder2.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        rvItemClick.OnClick(v, finalPosition);
+                        rvItemClick.OnClick(homeTopBean.getLink(),homeTopBean.getTitle());
                     }
                 });
             } else {
@@ -251,7 +251,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 holder2.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        rvItemClick.OnClick(v, finalPosition);
+                        rvItemClick.OnClick(datasBean.getLink(),datasBean.getTitle());
                     }
                 });
             }
@@ -328,7 +328,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public interface RvItemClick {
-        void OnClick(View v, int position);
+        void OnClick(String link,String title);
     }
 
 }
