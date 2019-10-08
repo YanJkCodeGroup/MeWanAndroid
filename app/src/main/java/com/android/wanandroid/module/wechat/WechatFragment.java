@@ -12,7 +12,9 @@ import com.android.mymvp.base.BaseMvpFragment;
 import com.android.mymvp.base.util.AppUtils;
 import com.android.wanandroid.Contract;
 import com.android.wanandroid.R;
-import com.android.wanandroid.module.wechat.wechatadapter.WechatListAdapter;
+import com.android.wanandroid.module.wechat.adapter.WechatListAdapter;
+import com.android.wanandroid.module.wechat.entity.WechatBean;
+import com.android.wanandroid.module.wechat.fragment.WechatListFragment;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -97,7 +99,7 @@ public class WechatFragment extends BaseMvpFragment<Contract.WechatPresenter> im
 
     @Override
     public Contract.WechatPresenter createPresenter() {
-        return new com.android.wanandroid.module.wechat.wehcatpresetner.WechatPresenter();
+        return new com.android.wanandroid.module.wechat.presetner.WechatPresenter();
     }
 
     @Override

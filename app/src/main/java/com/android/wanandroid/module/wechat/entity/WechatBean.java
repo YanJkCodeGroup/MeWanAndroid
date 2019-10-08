@@ -1,4 +1,4 @@
-package com.android.wanandroid.module.wechat;
+package com.android.wanandroid.module.wechat.entity;
 
 import java.util.List;
 

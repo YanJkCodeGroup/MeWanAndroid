@@ -11,8 +11,8 @@ import com.android.wanandroid.module.home.HomeBannerBean;
 import com.android.wanandroid.module.home.HomeBean;
 import com.android.wanandroid.module.project.entity.ProjectItemData;
 import com.android.wanandroid.module.project.entity.ProjectList;
-import com.android.wanandroid.module.wechat.WechatBean;
-import com.android.wanandroid.module.wechat.WechatListBean;
+import com.android.wanandroid.module.wechat.entity.WechatBean;
+import com.android.wanandroid.module.wechat.entity.WechatListBean;
 import com.android.wanandroid.test.entity.Test;
 import com.trello.rxlifecycle2.LifecycleProvider;
 

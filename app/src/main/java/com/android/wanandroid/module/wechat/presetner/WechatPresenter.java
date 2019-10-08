@@ -1,10 +1,10 @@
-package com.android.wanandroid.module.wechat.wehcatpresetner;
+package com.android.wanandroid.module.wechat.presetner;
 
 import com.android.mymvp.base.BaseCallback;
 import com.android.mymvp.base.BasePresenter;
 import com.android.wanandroid.AppMode;
 import com.android.wanandroid.Contract;
-import com.android.wanandroid.module.wechat.WechatBean;
+import com.android.wanandroid.module.wechat.entity.WechatBean;
 
 import java.util.List;
 

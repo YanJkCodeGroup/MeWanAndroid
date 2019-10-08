@@ -1,6 +1,5 @@
-package com.android.wanandroid.module.wechat.wechatadapter;
+package com.android.wanandroid.module.wechat.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.wanandroid.R;
-
-import com.android.wanandroid.module.project.entity.ProjectItemData;
-import com.android.wanandroid.module.wechat.WechatListBean;
+import com.android.wanandroid.module.wechat.entity.WechatListBean;
 
 import java.util.List;
 
 public class WechatListsAdapter extends RecyclerView.Adapter<WechatListsAdapter.ViewHolder> {
 
     private List<WechatListBean.DatasBean> list;
+    private OnClickListener onClickListener;
+
     public void initData(List<WechatListBean.DatasBean> mProjectLists) {
         if (list != null) {
             list.clear();
@@ -60,6 +59,14 @@ public class WechatListsAdapter extends RecyclerView.Adapter<WechatListsAdapter.
         return list != null ? list.size() : 0;
     }
 
+    public void setOnClickListener(OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
+    }
+
+    public interface OnClickListener{
+        void onClick(View v,int position);
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView wechatlist_title;
@@ -74,14 +81,5 @@ public class WechatListsAdapter extends RecyclerView.Adapter<WechatListsAdapter.
             wechatlist_niceDate = itemView.findViewById(R.id.wechatlist_niceDate);
             wechatlist_superChapterName = itemView.findViewById(R.id.wechatlist_superChapterName);
         }
-    }
-    private OnClickListener onClickListener;
-
-    public void setOnClickListener(OnClickListener onClickListener) {
-        this.onClickListener = onClickListener;
-    }
-
-    public interface OnClickListener{
-        void onClick(View v,int position);
     }
 }

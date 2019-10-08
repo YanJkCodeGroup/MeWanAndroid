@@ -5,7 +5,7 @@
     android:id="@+id/home_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".module.home.HomeActivity">
+    tools:context=".module.activity.HomeActivity">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/home_vp"

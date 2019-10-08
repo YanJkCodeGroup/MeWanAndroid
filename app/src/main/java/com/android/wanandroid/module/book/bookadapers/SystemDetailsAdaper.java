@@ -14,7 +14,7 @@ import androidx.constraintlayout.widget.Group;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.wanandroid.R;
-import com.android.wanandroid.module.book.bookactivity.BookNavigationActivity;
+import com.android.wanandroid.module.activity.DetailsWebActivity;
 import com.android.wanandroid.module.book.bookbeans.SystemDetailsBean;
 import com.android.wanandroid.widget.CollectView;
 import com.bumptech.glide.Glide;
@@ -52,9 +52,10 @@ public class SystemDetailsAdaper extends RecyclerView.Adapter<SystemDetailsAdape
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, BookNavigationActivity.class);
+                Intent intent = new Intent(context, DetailsWebActivity.class);
                 String link = systemDetailsList.get(position).getLink();
                 intent.putExtra("link", link);
+                intent.putExtra("title", systemDetailsList.get(position).getTitle());
                 context.startActivity(intent);
             }
         });

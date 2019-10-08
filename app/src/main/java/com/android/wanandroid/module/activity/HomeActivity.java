@@ -1,4 +1,4 @@
-package com.android.wanandroid.module.home;
+package com.android.wanandroid.module.activity;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -8,6 +8,7 @@ import com.android.utils.system.ImmersionModeUtil;
 import com.android.wanandroid.R;
 import com.android.wanandroid.module.adapter.HomeViewPagerAdapter;
 import com.android.wanandroid.module.book.BookFragment;
+import com.android.wanandroid.module.home.HomeFragment;
 import com.android.wanandroid.module.mine.MineFragment;
 import com.android.wanandroid.module.project.ProjectFragment;
 import com.android.wanandroid.module.wechat.WechatFragment;

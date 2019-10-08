@@ -36,13 +36,63 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
       notifyDataSetChanged();
    }
 
-   private OnItemClickListener onItemClickListener;
+   //条目点击监听
+   private OnItemClickListener mOnItemClickListener;
 
    @NonNull
    @Override
    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
       return new ViewHolder(LayoutInflater.from(parent.getContext())
               .inflate(R.layout.item_project_item_layout, parent, false));
+   }
+   //收藏的点击监听
+   private OnItemCollectClickListener mOnItemCollectClickListener;
+
+   @Override
+   public int getItemCount() {
+      return mList != null ? mList.size() : 0;
+   }
+
+   static class ViewHolder extends RecyclerView.ViewHolder {
+      @BindView(R.id.project_new)
+      TextView projectNew;
+      @BindView(R.id.project_author)
+      TextView projectAuthor;
+      @BindView(R.id.project_tag)
+      TextView projectTag;
+      @BindView(R.id.project_date)
+      TextView projectDate;
+      @BindView(R.id.project_icon)
+      ImageView projectIcon;
+      @BindView(R.id.project_title)
+      TextView projectTitle;
+      @BindView(R.id.project_content)
+      TextView projectContent;
+      @BindView(R.id.project_super_chapter_name)
+      TextView projectSuperChapterName;
+      @BindView(R.id.add_symbols)
+      TextView addSymbols;
+      @BindView(R.id.project_name)
+      TextView projectName;
+      @BindView(R.id.project_collect)
+      CollectView projectCollect;
+      @BindView(R.id.new_group)
+      Group newGroup;
+
+      public ViewHolder(@NonNull View itemView) {
+         super(itemView);
+         ButterKnife.bind(this, itemView);
+      }
+   }
+   //作者点击监听
+   private OnItemAuthorClickListener mOnItemAuthorClickListener;
+
+   public void addData(List<ProjectItemData.DatasBean> mProjectLists) {
+      if (mList != null) {
+         mList.addAll(mProjectLists);
+         notifyDataSetChanged();
+      }
+
    }
 
    @Override
@@ -61,7 +111,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
          holder.projectContent.setVisibility(View.GONE);
       }
       //判断是否显示下方tag
-      if (TextUtils.isEmpty(datasBean.getSuperChapterName()) || TextUtils.isEmpty(datasBean.getChapterName())) {
+      if (!TextUtils.isEmpty(datasBean.getSuperChapterName()) || !TextUtils.isEmpty(datasBean.getChapterName())) {
          holder.addSymbols.setVisibility(View.VISIBLE);
       } else {
          holder.addSymbols.setVisibility(View.GONE);
@@ -108,6 +158,9 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
          @Override
          public void onClick(View view) {
             //todo 作者点击事件
+            if (mOnItemAuthorClickListener != null) {
+               mOnItemAuthorClickListener.onItemCollectClick(view);
+            }
          }
       });
       holder.projectCollect.setOnClickListener(new CollectView.OnClickListener() {
@@ -115,61 +168,40 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
          public void onClick(CollectView v) {
             datasBean.setCollect(!datasBean.isCollect());
             //todo 收藏点击事件
+            mOnItemCollectClickListener.onItemCollectClick(v);
+         }
+      });
+      holder.itemView.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+            if (mOnItemClickListener != null) {
+               mOnItemClickListener.onItemClick(datasBean.getLink(), datasBean.getTitle());
+            }
          }
       });
    }
 
-   @Override
-   public int getItemCount() {
-      return mList != null ? mList.size() : 0;
-   }
-
-   static class ViewHolder extends RecyclerView.ViewHolder {
-      @BindView(R.id.project_new)
-      TextView projectNew;
-      @BindView(R.id.project_author)
-      TextView projectAuthor;
-      @BindView(R.id.project_tag)
-      TextView projectTag;
-      @BindView(R.id.project_date)
-      TextView projectDate;
-      @BindView(R.id.project_icon)
-      ImageView projectIcon;
-      @BindView(R.id.project_title)
-      TextView projectTitle;
-      @BindView(R.id.project_content)
-      TextView projectContent;
-      @BindView(R.id.project_super_chapter_name)
-      TextView projectSuperChapterName;
-      @BindView(R.id.add_symbols)
-      TextView addSymbols;
-      @BindView(R.id.project_name)
-      TextView projectName;
-      @BindView(R.id.project_collect)
-      CollectView projectCollect;
-      @BindView(R.id.new_group)
-      Group newGroup;
-
-      public ViewHolder(@NonNull View itemView) {
-         super(itemView);
-         ButterKnife.bind(this, itemView);
-      }
-   }
-
-   public void addData(List<ProjectItemData.DatasBean> mProjectLists) {
-      if (mList != null) {
-         mList.addAll(mProjectLists);
-         notifyDataSetChanged();
-      }
-
-   }
-
    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
-      this.onItemClickListener = onItemClickListener;
+      mOnItemClickListener = onItemClickListener;
+   }
+
+   public void setOnItemCollectClickListener(OnItemCollectClickListener onItemCollectClickListener) {
+      mOnItemCollectClickListener = onItemCollectClickListener;
+   }
+
+   public void setOnItemAuthorClickListener(OnItemAuthorClickListener onItemAuthorClickListener) {
+      mOnItemAuthorClickListener = onItemAuthorClickListener;
    }
 
    public interface OnItemClickListener {
-      void onItemClick(View v);
+      void onItemClick(String link, String title);
    }
 
+   public interface OnItemCollectClickListener {
+      void onItemCollectClick(CollectView v);
+   }
+
+   public interface OnItemAuthorClickListener {
+      void onItemCollectClick(View v);
+   }
 }

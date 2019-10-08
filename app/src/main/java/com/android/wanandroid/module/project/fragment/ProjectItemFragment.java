@@ -1,6 +1,8 @@
 package com.android.wanandroid.module.project.fragment;
 
 
+import android.content.Intent;
+
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -13,6 +15,7 @@ import com.android.mymvp.base.BaseMvpFragment;
 import com.android.utils.log.LogUtil;
 import com.android.wanandroid.Contract;
 import com.android.wanandroid.R;
+import com.android.wanandroid.module.activity.DetailsWebActivity;
 import com.android.wanandroid.module.project.adapter.ItemRecyclerAdapter;
 import com.android.wanandroid.module.project.entity.ProjectItemData;
 import com.android.wanandroid.module.project.presenter.ProjectItemPresenter;
@@ -79,6 +82,15 @@ public class ProjectItemFragment extends BaseMvpFragment<Contract.ProjectContrac
          public void onRefresh(@NonNull RefreshLayout refreshLayout) {
             page = 1;
             initData();
+         }
+      });
+      mAdapter.setOnItemClickListener(new ItemRecyclerAdapter.OnItemClickListener() {
+         @Override
+         public void onItemClick(String link, String title) {
+            Intent intent = new Intent();
+            intent.putExtra("link", link);
+            intent.putExtra("title", title);
+            toActivity(DetailsWebActivity.class, intent);
          }
       });
    }
