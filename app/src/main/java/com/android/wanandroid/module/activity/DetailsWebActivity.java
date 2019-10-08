@@ -1,8 +1,10 @@
 package com.android.wanandroid.module.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.text.TextUtils;
 import android.view.View;
+import android.webkit.CookieManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -90,15 +92,15 @@ public class DetailsWebActivity extends BaseActivity {
          }
       });
       WebSettings settings = booknavWeb.getSettings();
-      settings.setJavaScriptEnabled(true);//js支持
-      settings.setJavaScriptCanOpenWindowsAutomatically(true);//js支持
-      settings.setBuiltInZoomControls(true);
-      settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+      booknavWeb.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
+      settings.setJavaScriptEnabled(true);
+      settings.setLoadsImagesAutomatically(true);
       settings.setUseWideViewPort(true);
       settings.setLoadWithOverviewMode(true);
-      settings.setSavePassword(true);
-      settings.setSaveFormData(true);
-      settings.setJavaScriptEnabled(true);
+      settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+         CookieManager.getInstance().setAcceptThirdPartyCookies(booknavWeb, true);
+      }
       booknavWeb.loadUrl(link);
 
    }
