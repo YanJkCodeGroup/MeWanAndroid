@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.CountDownTimer;
 
 import com.android.mymvp.base.BaseActivity;
+import com.android.utils.system.ImmersionModeUtil;
 import com.android.wanandroid.R;
 import com.android.wanandroid.module.activity.HomeActivity;
-import com.android.wanandroid.test.MainActivity;
 
 public class WelcomeActivity extends BaseActivity {
 
@@ -17,7 +17,7 @@ public class WelcomeActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        super.initView();
+        ImmersionModeUtil.setStatusBar(this, false);
         CountDownTimer countDownTimer = new CountDownTimer(3000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
