@@ -2,6 +2,7 @@ package com.android.wanandroid.module.project.fragment;
 
 
 import android.content.Intent;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -19,6 +20,7 @@ import com.android.wanandroid.module.activity.DetailsWebActivity;
 import com.android.wanandroid.module.project.adapter.ItemRecyclerAdapter;
 import com.android.wanandroid.module.project.entity.ProjectItemData;
 import com.android.wanandroid.module.project.presenter.ProjectItemPresenter;
+import com.android.wanandroid.widget.CollectView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
@@ -91,6 +93,22 @@ public class ProjectItemFragment extends BaseMvpFragment<Contract.ProjectContrac
             intent.putExtra("link", link);
             intent.putExtra("title", title);
             toActivity(DetailsWebActivity.class, intent);
+         }
+      });
+
+      //作者点击回调
+      mAdapter.setOnItemAuthorClickListener(new ItemRecyclerAdapter.OnItemAuthorClickListener() {
+         @Override
+         public void onItemCollectClick(View v) {
+
+         }
+      });
+
+      //收藏点击回调
+      mAdapter.setOnItemCollectClickListener(new ItemRecyclerAdapter.OnItemCollectClickListener() {
+         @Override
+         public void onItemCollectClick(CollectView v) {
+
          }
       });
    }

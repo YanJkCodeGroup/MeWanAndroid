@@ -43,21 +43,21 @@
         app:layout_constraintTop_toBottomOf="@+id/navigation_header_pet_name" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/navigation_header_user_grade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="等级:--"
         android:textColor="@android:color/white"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/navigation_header_user_ranking"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/navigation_header_user_id" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/navigation_header_user_ranking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -65,7 +65,7 @@
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        app:layout_constraintStart_toEndOf="@+id/navigation_header_user_grade"
+        app:layout_constraintTop_toTopOf="@+id/navigation_header_user_grade" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
