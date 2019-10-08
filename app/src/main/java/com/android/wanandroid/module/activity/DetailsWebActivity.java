@@ -102,7 +102,6 @@ public class DetailsWebActivity extends BaseActivity {
          CookieManager.getInstance().setAcceptThirdPartyCookies(booknavWeb, true);
       }
       booknavWeb.loadUrl(link);
-
    }
 
    @Override
