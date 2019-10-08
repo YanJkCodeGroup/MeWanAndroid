@@ -55,4 +55,25 @@ public class HomePresenter extends BasePresenter<Contract.HomeView, AppMode> imp
             }
         });
     }
+
+    @Override
+    public void initHomeTopPresenter() {
+        getModel().getHomeTop(getLifecycleProvider(), new BaseCallback<List<HomeTopBean>>() {
+            @Override
+            public void onCallSuccessful(List<HomeTopBean> value) {
+                super.onCallSuccessful(value);
+                if (mView!=null){
+                    mView.HomeTopSucceed(value);
+                }
+            }
+
+            @Override
+            public <M extends Throwable> void onCallFailed(M msg) {
+                super.onCallFailed(msg);
+                if (mView!=null){
+                    mView.homeTopFail(msg.getMessage());
+                }
+            }
+        });
+    }
 }

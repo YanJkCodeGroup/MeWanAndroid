@@ -1,6 +1,7 @@
 package com.android.wanandroid.module.home;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,10 +27,12 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<HomeBean.DatasBean> homeBeanList;
     private List<HomeBannerBean> homeBannerBeanList;
+    private List<HomeTopBean> homeTopBeanList;
 
 
     public void initData(List<HomeBean.DatasBean> homeList, List<HomeBannerBean> homeBannerList) {
@@ -37,12 +40,13 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             homeBeanList.clear();
         }
         this.homeBeanList = homeList;
+        this.homeTopBeanList = homeTopBeanList;
         this.homeBannerBeanList = homeBannerList;
         notifyDataSetChanged();
     }
 
     public void addData(List<HomeBean.DatasBean> homeList) {
-        if (homeBeanList != null) {
+        if (homeBeanList != null && homeTopBeanList != null) {
             this.homeBeanList.addAll(homeList);
             notifyDataSetChanged();
         }
@@ -172,6 +176,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             } else {
                 return homeBeanList.size();
             }
+        }
         return 0;
     }
 
@@ -235,4 +240,5 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public interface RvItemClick {
         void OnClick(View v, int position);
     }
+
 }

@@ -1,6 +1,7 @@
 package com.android.wanandroid.module.home;
 
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ import com.android.mymvp.base.BaseMvpFragment;
 import com.android.mymvp.base.util.AppUtils;
 import com.android.wanandroid.Contract;
 import com.android.wanandroid.R;
+import com.android.wanandroid.module.book.bookactivity.BookNavigationActivity;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
@@ -24,6 +26,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,6 +43,7 @@ public class HomeFragment extends BaseMvpFragment<Contract.HomePresenter> implem
     private static final String TAG = "HomeFragment";
     private List<HomeBean.DatasBean> homeBeanDatas;
     private List<HomeBannerBean> homeBannerList;
+    private List<HomeTopBean> homeTopBeanList;
     private int page;
     private HomeAdapter homeAdapter;
 
@@ -69,8 +73,11 @@ public class HomeFragment extends BaseMvpFragment<Contract.HomePresenter> implem
     @Override
     protected void initData() {
         super.initData();
-        mPresenter.initHomePresenter(page);
-        mPresenter.initHomeBannerPresenter();
+        if (mPresenter != null) {
+            mPresenter.initHomePresenter(page);
+            mPresenter.initHomeBannerPresenter();
+            mPresenter.initHomeTopPresenter();
+        }
     }
 
 
@@ -98,7 +105,9 @@ public class HomeFragment extends BaseMvpFragment<Contract.HomePresenter> implem
         homeAdapter.setRvItemClick(new HomeAdapter.RvItemClick() {
             @Override
             public void OnClick(View v, int position) {
-
+                Intent intent = new Intent(mContext, BookNavigationActivity.class);
+                intent.putExtra("home_link", homeBeanDatas.get(position).getProjectLink());
+                startActivity(intent);
             }
         });
     }
@@ -122,7 +131,6 @@ public class HomeFragment extends BaseMvpFragment<Contract.HomePresenter> implem
     public void homeBannerSucceed(List<HomeBannerBean> homeBannerList) {
         this.homeBannerList = homeBannerList;
         if (homeBeanDatas != null && homeBeanDatas.size() > 0) {
-
             initReclcerData();
         }
     }
@@ -133,13 +141,40 @@ public class HomeFragment extends BaseMvpFragment<Contract.HomePresenter> implem
         Toast.makeText(mContext, "错误为:" + error, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void HomeTopSucceed(List<HomeTopBean> homeTopList) {
+        this.homeTopBeanList=homeTopList;
+        if (homeTopBeanList.size()>0&&homeTopBeanList!=null){
+            initReclcerData();
+        }
+    }
+
+    @Override
+    public void homeTopFail(String error) {
+        Log.d(TAG, "fail: " + error);
+        Toast.makeText(mContext, "错误为:" + error, Toast.LENGTH_SHORT).show();
+    }
+
     private void initReclcerData() {
         if (page == 0) {
-            homeAdapter.initData(homeBeanDatas, homeBannerList);
+            homeAdapter.initData(homeBeanDatas, homeBannerList,homeTopBeanList);
         } else {
             homeAdapter.addData(homeBeanDatas);
         }
         home_smart.finishLoadMore();
         home_smart.finishRefresh();
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (rootView == null) {
+            return;
+        }
+        if (isVisibleToUser) {
+            unbinder = ButterKnife.bind(this, rootView);
+            initMvp();
+            initData();
+        }
     }
 }

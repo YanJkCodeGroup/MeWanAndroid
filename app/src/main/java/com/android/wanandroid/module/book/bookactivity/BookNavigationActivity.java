@@ -36,6 +36,8 @@ public class BookNavigationActivity extends BaseActivity {
       //获取传过来的link 网址
       Intent intent = getIntent();
       String link = intent.getStringExtra("link");
+      //首页详情网址
+      String home_link = intent.getStringExtra("home_link");
 
 
       WebSettings settings = booknavWeb.getSettings();
@@ -60,6 +62,7 @@ public class BookNavigationActivity extends BaseActivity {
       settings.setDatabaseEnabled(true);
       settings.setMediaPlaybackRequiresUserGesture(false);
       booknavWeb.loadUrl(link);
+      booknavWeb.loadUrl(home_link);
 
       //设置在webview 上
       booknavWeb.setWebViewClient(new WebViewClient());
