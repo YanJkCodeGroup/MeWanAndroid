@@ -162,6 +162,12 @@ public class HomeFragment extends BaseMvpFragment<Contract.HomePresenter> implem
       } else {
          homeAdapter.addData(homeBeanDatas);
       }
+      if (home_smart == null) {
+         if (rootView == null) {
+            return;
+         }
+         home_smart = rootView.findViewById(R.id.home_smart);
+      }
       home_smart.finishLoadMore();
       home_smart.finishRefresh();
    }
